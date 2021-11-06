@@ -206,12 +206,10 @@ h2 {
 }
 
 #countdown {
-    padding: 0px 0px 0px 0px;
-    width: 80%;
-    max-width: 500px;
+    width: 100%;
     margin: auto;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2.4em;
     font-weight: 400;
     display: none;
 }
