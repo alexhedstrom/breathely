@@ -1,0 +1,321 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    opacity: .8;
+    line-height: 1.6em;
+    color: black;
+}
+
+header {
+    position: relative;
+    padding: 70px 10px 20px 10px;
+    text-align: center;
+    color: black;
+    width: 100%;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+}
+a:hover{
+    color: black;
+}
+a:active {
+    color: black;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.4em;
+}
+h2 {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+h3 {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.loaderoverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding-top: 15em;
+    background: rgb(255, 255, 255, .70);
+    z-index: 10;
+}
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    z-index: 1;
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #00A6BC;
+    border-bottom: 10px solid #00A6BC;
+    border-radius: 50%;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#mySketch {
+    margin: auto;
+    height: 300px;
+    width: 300px;
+    display: none;
+}
+
+#buttonstart, #buttonbegin, #buttonpauseplay, #buttoncancel, #buttonclose, #buttonclosedone {
+    border: 0px solid black;
+    border-radius: 20em;
+    width: 180px;
+    padding: 6px;
+    margin: 1em auto;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    background-color: rgba(0, 166, 188);
+}
+#buttonbegin, #buttonpauseplay, #buttoncancel, #buttonclose, #buttonclosedone {
+    display: none;
+}
+#buttonclose {
+    color: black;
+    background-color: rgba(255, 255, 255);
+}
+#buttonclosedone {
+    color: black;
+    background-color: rgba(255, 255, 255);
+}
+#buttonstart:hover, #buttonbegin:hover, #buttonpauseplay:hover, #buttoncancel:hover, #buttonclose:hover, #buttonclosedone:hover {
+    background-color: rgb(0, 166, 188, .8);
+    transition: .3s;
+    transform: scale(1.05);
+}
+#buttonclose:hover {
+    background-color: rgb(255, 255, 255, 0.8);
+}
+#buttonclosedone:hover {
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+#info {
+    position: fixed;
+    top: 10px;
+    right: 30px;
+    cursor: pointer;
+    color: black;
+}
+#infooverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+    line-height: 1.6em;
+    color: white;
+    background: rgba(0, 166, 188, .99);
+    opacity: .99;
+    display: none;
+    z-index: 1;
+}
+#infoclose {
+    text-align: right;
+    cursor: pointer;
+}
+@media only screen and (min-width: 992px) {
+    #infooverlay {
+        width: 90%;
+        height: 90%;
+        max-width: 600px;
+    }
+}
+
+#intro {
+    padding: 30px 10px 30px 10px;
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+#shop {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    text-align: left;
+}
+
+#settings {
+    padding: 30px 10px 30px 10px;
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    display: none;
+}
+.settingsradio {
+    display: block;
+    text-align: center;
+}
+.settingsradio input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid black;
+    transition: 0.2s all linear;
+}
+.settingsradio input:checked {
+    background: rgba(0, 166, 188);
+}
+.settingsradio label {
+    margin: 0px 6px 0px 1px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.settingsradio label:hover {
+    color: rgba(0, 166, 188);
+    transition: .3s;
+}
+
+#countdown {
+    padding: 10px 10px 10px 10px;
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 500;
+    display: none;
+}
+
+#customize {
+    position: fixed;
+    top: 10px;
+    left: 30px;
+    cursor: pointer;
+    display: none;
+}
+#customizemenu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    padding: 27px 10px 10px 30px;
+    background: rgb(0, 166, 188, .99);
+    transition: 0.5s;
+    font-weight: 200;
+    color: white;
+    z-index: 1;
+}
+#customizeclose {
+    position: relative;
+    cursor: pointer;
+}
+.customizeradio {
+    display: block;
+    text-align: left;
+    line-height: 2em;
+}
+.customizeradio input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid white;
+    transition: 0.2s all linear;
+}
+.customizeradio input:checked {
+    background: white;
+}
+.customizeradio label {
+    margin: 0px 0px 0px 3px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.customizeradio label:hover {
+    transition: .3s;
+}
+.customizelink {
+    display: block;
+    text-align: center;
+    line-height: 4em;
+}
+.customizelink a:link {
+    color: white;
+    font-weight: 400;
+    text-decoration: none;
+}
+.customizelink a:visited {
+    color: white;
+}
+.customizelink a:hover{
+    color: white;
+}
+.customizelink a:active {
+    color: black;
+}
+
+.canceloverlay, .doneoverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding-top: 15em;
+    background: rgb(0, 166, 188, .99);
+    z-index: 10;
+}
+#cancelcomment, #donecomment {
+    display: none;
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+.pagefooter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+}
+.pagefooter a {
+    text-decoration: none;
+    color: inherit;
+}
