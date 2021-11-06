@@ -12,7 +12,7 @@ body {
 
 header {
     position: relative;
-    padding: 70px 10px 20px 10px;
+    padding: 60px 10px 20px 10px;
     text-align: center;
     color: black;
     width: 100%;
@@ -38,10 +38,6 @@ h1 {
     line-height: 2,2em;
 }
 h2 {
-    font-weight: 500;
-    font-size: 1.4em;
-}
-h3 {
     font-weight: 500;
     font-size: 1.2em;
 }
@@ -210,13 +206,13 @@ h3 {
 }
 
 #countdown {
-    padding: 10px 10px 10px 10px;
+    padding: 0px 0px 0px 0px;
     width: 80%;
     max-width: 500px;
     margin: auto;
     text-align: center;
     font-size: 2.5em;
-    font-weight: 500;
+    font-weight: 400;
     display: none;
 }
 
