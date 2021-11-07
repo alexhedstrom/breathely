@@ -25,13 +25,13 @@ customize.addEventListener('click', function () {
       var isClickInside = customizemenu.contains(event.target);
       var isClickLink = customize.contains(event.target);
       if (isClickLink) {
-        //                console.log('You clicked link');
+        // console.log('You clicked link');
       }
       else if (isClickInside) {
-        //                console.log('You clicked inside');
+        // console.log('You clicked inside');
       }
       else {
-        //                console.log('You clicked outside');
+        // console.log('You clicked outside');
         customizemenu.style.left = '-300px';
       }
     })
@@ -310,7 +310,7 @@ function countDown(secs, elem) {
     element.innerHTML = ' ';
     canceloverlay.classList.add('canceloverlay');
     buttonclose.style.display = 'block';
-    cancelcomment.style.display = 'block';
+    canceloverlay.style.display = 'block';
     songplayed.stop();
     return;
   })
@@ -320,7 +320,7 @@ function countDown(secs, elem) {
     element.innerHTML = ' ';
     doneoverlay.classList.add('doneoverlay');
     buttonclosedone.style.display = 'block';
-    donecomment.style.display = 'block';
+    doneoverlay.style.display = 'block';
     songplayed.stop();
     return;
   }
