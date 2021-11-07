@@ -150,6 +150,8 @@ h2 {
 #infooverlaytxt {
     position: absolute;
     top: 60px;
+    left: 50%;
+    right: 50%;
     text-align: center;
     max-width: 600px;
     margin: auto;
