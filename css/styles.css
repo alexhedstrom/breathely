@@ -120,10 +120,9 @@ h2 {
 
 #info {
     position: fixed;
-    top: 13px;
+    top: 30px;
     right: 30px;
     cursor: pointer;
-    color: black;
 }
 #infooverlay {
     position: absolute;
@@ -215,7 +214,7 @@ h2 {
 
 #customize {
     position: fixed;
-    top: 12px;
+    top: 30px;
     left: 30px;
     cursor: pointer;
     display: none;
@@ -223,10 +222,10 @@ h2 {
 #customizemenu {
     position: fixed;
     top: 0;
-    left: -300px;
-    width: 300px;
+    left: -260px;
+    width: 260px;
     height: 100%;
-    padding: 27px 10px 10px 30px;
+    padding: 30px;
     background: rgb(0, 166, 188);
     transition: 0.5s;
     font-weight: 200;
@@ -234,7 +233,6 @@ h2 {
     z-index: 1;
 }
 #customizeclose {
-    position: relative;
     cursor: pointer;
 }
 .customizeradio {
@@ -304,7 +302,7 @@ h2 {
 
 .pagefooter {
     position: fixed;
-    bottom: 20px;
+    bottom: 22px;
     right: 30px;
     text-align: right;
 }
