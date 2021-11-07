@@ -148,7 +148,7 @@ h2 {
 }
 
 #infooverlaytxt {
-    position: absolute;
+    position: relative;
     top: 30px;
     left: 50%;
     right: 50%;
