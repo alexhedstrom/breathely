@@ -120,7 +120,7 @@ h2 {
 
 #info {
     position: fixed;
-    top: 10px;
+    top: 13px;
     right: 30px;
     cursor: pointer;
     color: black;
@@ -149,9 +149,7 @@ h2 {
 
 #infooverlaytxt {
     position: relative;
-    top: 30px;
-    left: 50%;
-    right: 50%;
+    top: 0;
     text-align: center;
     max-width: 600px;
     margin: auto;
@@ -168,7 +166,7 @@ h2 {
 #shop {
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    left: 30px;
     text-align: left;
 }
 
@@ -217,7 +215,7 @@ h2 {
 
 #customize {
     position: fixed;
-    top: 10px;
+    top: 12px;
     left: 30px;
     cursor: pointer;
     display: none;
@@ -307,7 +305,7 @@ h2 {
 .pagefooter {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 30px;
     text-align: right;
 }
 .pagefooter a {
