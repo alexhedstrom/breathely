@@ -18,22 +18,9 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "/?source=pwa",
+    "start_url": "/",
     "background_color": "#00a6bc",
     "display": "standalone",
     "scope": "/",
     "theme_color": "#00a6bc",
     "description": "Conscious breathing is the key to a long and healthy life.",
-    "screenshots": [
-      {
-        "src": "/images/screenshot1.png",
-        "type": "image/png",
-        "sizes": "540x720"
-      },
-      {
-        "src": "/images/screenshot2.jpg",
-        "type": "image/jpg",
-        "sizes": "540x720"
-      }
-    ]
-  }
