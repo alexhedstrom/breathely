@@ -3,8 +3,6 @@ const butInstall = document.getElementById('butInstall');
 
 /* Put code here */
 
-
-
 /* Only register a service worker if it's supported */
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js');
@@ -22,7 +20,6 @@ if (window.location.protocol === 'http:') {
   link.href = window.location.href.replace('http://', 'https://');
   requireHTTPS.classList.remove('hidden');
 }
-
 
 console.log('reading js');
 
