@@ -95,7 +95,7 @@ infoclose.addEventListener('click', function () {
 })
 
 // duration variable
-var duration;
+let duration;
 var threemin_intro = document.querySelector('#threemin_intro');
 var fivemin_intro = document.querySelector('#fivemin_intro');
 var tenmin_intro = document.querySelector('#tenmin_intro');
