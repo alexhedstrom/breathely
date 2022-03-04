@@ -25,19 +25,19 @@ console.log('reading js');
 
 'use strict';
 
-var customize = document.querySelector('#customize');
-var customizemenu = document.querySelector('#customizemenu');
-var customizeclose = document.querySelector('#customizeclose');
-var buttonstart = document.querySelector('#buttonstart');
-var buttonbegin = document.querySelector('#buttonbegin');
-var buttonpauseplay = document.querySelector('#buttonpauseplay');
-var settings = document.querySelector('#settings');
-var countdown = document.querySelector('#countdown');
-var mySketch = document.querySelector('#mySketch');
-var intro = document.querySelector('#intro');
-var infooverlay = document.querySelector('#infooverlay');
-var info = document.querySelector('#info');
-var infoclose = document.querySelector('#infoclose');
+let customize = document.querySelector('#customize');
+let customizemenu = document.querySelector('#customizemenu');
+let customizeclose = document.querySelector('#customizeclose');
+let buttonstart = document.querySelector('#buttonstart');
+let buttonbegin = document.querySelector('#buttonbegin');
+let buttonpauseplay = document.querySelector('#buttonpauseplay');
+let settings = document.querySelector('#settings');
+let countdown = document.querySelector('#countdown');
+let mySketch = document.querySelector('#mySketch');
+let intro = document.querySelector('#intro');
+let infooverlay = document.querySelector('#infooverlay');
+let info = document.querySelector('#info');
+let infoclose = document.querySelector('#infoclose');
 
 // open customize menu
 customize.addEventListener('click', function () {
@@ -45,8 +45,8 @@ customize.addEventListener('click', function () {
   // close customize menu on click outside
   if (!customizemenu.contains(event.target)) {
     document.addEventListener('click', function () {
-      var isClickInside = customizemenu.contains(event.target);
-      var isClickLink = customize.contains(event.target);
+      let isClickInside = customizemenu.contains(event.target);
+      let isClickLink = customize.contains(event.target);
       if (isClickLink) {
         // console.log('You clicked link');
       }
@@ -96,14 +96,14 @@ infoclose.addEventListener('click', function () {
 
 // duration variable
 let duration;
-var threemin_intro = document.querySelector('#threemin_intro');
-var fivemin_intro = document.querySelector('#fivemin_intro');
-var tenmin_intro = document.querySelector('#tenmin_intro');
-var twentymin_intro = document.querySelector('#twentymin_intro');
-var threemin = document.querySelector('#threemin');
-var fivemin = document.querySelector('#fivemin');
-var tenmin = document.querySelector('#tenmin');
-var twentymin = document.querySelector('#twentymin');
+let threemin_intro = document.querySelector('#threemin_intro');
+let fivemin_intro = document.querySelector('#fivemin_intro');
+let tenmin_intro = document.querySelector('#tenmin_intro');
+let twentymin_intro = document.querySelector('#twentymin_intro');
+let threemin = document.querySelector('#threemin');
+let fivemin = document.querySelector('#fivemin');
+let tenmin = document.querySelector('#tenmin');
+let twentymin = document.querySelector('#twentymin');
 
 // set duration three min
 threemin_intro.addEventListener('click', function () {
@@ -150,7 +150,7 @@ twentymin.addEventListener('click', function () {
 })
 
 // song played
-var songplayed;
+let songplayed;
 
 // toggle song
 function toggleSong() {
@@ -180,13 +180,13 @@ function music() {
 }
 
 // music click
-var musicclick;
-var sound1_intro = document.querySelector('#sound1_intro');
-var sound2_intro = document.querySelector('#sound2_intro');
-var sound9_intro = document.querySelector('#sound9_intro');
-var sound1 = document.querySelector('#sound1');
-var sound2 = document.querySelector('#sound2');
-var sound9 = document.querySelector('#sound9');
+let musicclick;
+let sound1_intro = document.querySelector('#sound1_intro');
+let sound2_intro = document.querySelector('#sound2_intro');
+let sound9_intro = document.querySelector('#sound9_intro');
+let sound1 = document.querySelector('#sound1');
+let sound2 = document.querySelector('#sound2');
+let sound9 = document.querySelector('#sound9');
 
 // set sound1
 sound1_intro.addEventListener('click', function () {
@@ -232,24 +232,24 @@ function preload() {
 }
 
 // draw circle
-var threeminintro = document.getElementById("threemin_intro");
-var fiveminintro = document.getElementById("fivemin_intro");
-var tenminintro = document.getElementById("tenmin_intro");
-var twentyminintro = document.getElementById("twentymin_intro");
-var sound1intro = document.getElementById("sound1_intro");
-var sound2intro = document.getElementById("sound2_intro");
-var sound9intro = document.getElementById("sound9_intro");
+let threeminintro = document.getElementById("threemin_intro");
+let fiveminintro = document.getElementById("fivemin_intro");
+let tenminintro = document.getElementById("tenmin_intro");
+let twentyminintro = document.getElementById("twentymin_intro");
+let sound1intro = document.getElementById("sound1_intro");
+let sound2intro = document.getElementById("sound2_intro");
+let sound9intro = document.getElementById("sound9_intro");
 
-var iftimer;
-var ifsound;
-var x, y;
-var r = 120;
-var delta = 1;
-var word;
-var wordcounter = 0;
+let iftimer;
+let ifsound;
+let x, y;
+let r = 120;
+let delta = 1;
+let word;
+let wordcounter = 0;
 
 function setup() {
-  var myCanvas = createCanvas(300, 300);
+  let myCanvas = createCanvas(300, 300);
   myCanvas.parent('mySketch');
   x = width / 2;
   y = height / 2;
@@ -304,9 +304,9 @@ function draw() {
 }
 
 // timer code
-var timer;
-var timerRunning = false;
-var current_secs;
+let timer;
+let timerRunning = false;
+let current_secs;
 
 function countDown(secs, elem) {
   if (timerRunning == true) {
@@ -314,20 +314,20 @@ function countDown(secs, elem) {
     timerRunning = false;
   }
 
-  var element = document.getElementById(elem);
-  var minutes = Math.floor(secs / 60);
-  var seconds = secs - minutes * 60;
+  let element = document.getElementById(elem);
+  let minutes = Math.floor(secs / 60);
+  let seconds = secs - minutes * 60;
 
   function str_pad_left(string, pad, length) {
     return (new Array(length + 1).join(pad) + string).slice(-length);
   }
 
-  var finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
+  let finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
 
   console.log(secs);
   element.innerHTML = finalTime;
 
-  var buttoncancel = document.querySelector('#buttoncancel');
+  let buttoncancel = document.querySelector('#buttoncancel');
   buttoncancel.addEventListener('click', function () {
     clearTimeout(timer);
     element.innerHTML = ' ';
@@ -354,11 +354,11 @@ function countDown(secs, elem) {
   timerRunning = true;
 }
 
-var status = document.querySelector('#status');
-var canceloverlay = document.querySelector('#canceloverlay');
-var doneoverlay = document.querySelector('#doneoverlay');
-var buttonclose = document.querySelector('#buttonclose');
-var buttonclosedone = document.querySelector('#buttonclosedone');
+let status = document.querySelector('#status');
+let canceloverlay = document.querySelector('#canceloverlay');
+let doneoverlay = document.querySelector('#doneoverlay');
+let buttonclose = document.querySelector('#buttonclose');
+let buttonclosedone = document.querySelector('#buttonclosedone');
 
 buttonclose.addEventListener('click', function () {
   window.location.reload();
