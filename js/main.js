@@ -30,6 +30,7 @@ let customizemenu = document.querySelector('#customizemenu');
 let customizeclose = document.querySelector('#customizeclose');
 let buttonstart = document.querySelector('#buttonstart');
 let buttonbegin = document.querySelector('#buttonbegin');
+let buttoncancel = document.querySelector('#buttoncancel')
 let buttonpauseplay = document.querySelector('#buttonpauseplay');
 let settings = document.querySelector('#settings');
 let countdown = document.querySelector('#countdown');
