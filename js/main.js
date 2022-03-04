@@ -22,36 +22,36 @@ if (window.location.protocol === 'http:') {
 }
 
 
-// Breathely
+// use strict
 'use strict';
 
 // Navigation
-let customizeopen = document.querySelector('#customizeopen');
-let customizemenu = document.querySelector('#customizemenu');
-let customizeclose = document.querySelector('#customizeclose');
+let customize_open = document.querySelector('#customize_open');
+let customize_menu = document.querySelector('#customize_menu');
+let customize_close = document.querySelector('#customize_close');
 
-let buttonstart = document.querySelector('#buttonstart');
-let buttonbegin = document.querySelector('#buttonbegin');
-let buttoncancel = document.querySelector('#buttoncancel')
-let buttonpauseplay = document.querySelector('#buttonpauseplay');
+let button_start = document.querySelector('#button_start');
+let button_begin = document.querySelector('#button_begin');
+let button_cancel = document.querySelector('#button_cancel')
+let button_pause_play = document.querySelector('#button_pause_play');
 
 let settings = document.querySelector('#settings');
 let countdown = document.querySelector('#countdown');
-let mySketch = document.querySelector('#mySketch');
+let my_sketch = document.querySelector('#my_sketch');
 let intro = document.querySelector('#intro');
 
-let infoopen = document.querySelector('#infoopen');
-let infooverlay = document.querySelector('#infooverlay');
-let infoclose = document.querySelector('#infoclose');
+let info_open = document.querySelector('#info_open');
+let info_overlay = document.querySelector('#info_overlay');
+let info_close = document.querySelector('#info_close');
 
 // Open customize menu
-customizeopen.addEventListener('click', function () {
-  customizemenu.style.left = '0';
+customize_open.addEventListener('click', function () {
+  customize_menu.style.left = '0';
   // Close customize menu on click outside
-  if (!customizemenu.contains(event.target)) {
+  if (!customize_menu.contains(event.target)) {
     document.addEventListener('click', function () {
-      let isClickInside = customizemenu.contains(event.target);
-      let isClickOpen = customizeopen.contains(event.target);
+      let isClickInside = customize_menu.contains(event.target);
+      let isClickOpen = customize_open.contains(event.target);
       if (isClickOpen) {
         console.log('You clicked on open');
       }
@@ -60,134 +60,134 @@ customizeopen.addEventListener('click', function () {
       }
       else {
         console.log('You clicked outside');
-        customizemenu.style.left = '-300px';
+        customize_menu.style.left = '-300px';
       }
     })
   }
 })
 
 // Close customize menu
-customizeclose.addEventListener('click', function () {
-  customizemenu.style.left = '-300px';
+customize_close.addEventListener('click', function () {
+  customize_menu.style.left = '-300px';
 })
 
 // Start breathing button
-buttonstart.addEventListener('click', function () {
+button_start.addEventListener('click', function () {
   intro.style.display = 'none';
   settings.style.display = 'block';
 })
 
 // Begin button
-buttonbegin.addEventListener('click', function () {
+button_begin.addEventListener('click', function () {
   settings.style.display = 'none';
-  customizeopen.style.display = 'block';
+  customize_open.style.display = 'block';
   countdown.style.display = 'block';
-  mySketch.style.display = 'block';
-  buttonpauseplay.style.display = 'block';
-  buttoncancel.style.display = 'block';
-  countDown(duration, 'status');
+  my_sketch.style.display = 'block';
+  button_pause_play.style.display = 'block';
+  button_cancel.style.display = 'block';
+  countdown(duration, 'status');
   music();
 })
 
 // Display info
-infoopen.addEventListener('click', function () {
-  infooverlay.style.display = 'block';
+info_open.addEventListener('click', function () {
+  info_overlay.style.display = 'block';
 })
 
 // Close info
-infoclose.addEventListener('click', function () {
-  infooverlay.style.display = 'none';
+info_close.addEventListener('click', function () {
+  info_overlay.style.display = 'none';
 })
 
 // Music
 
 // Duration variable
 let duration;
-let threemin_intro = document.querySelector('#threemin_intro');
-let fivemin_intro = document.querySelector('#fivemin_intro');
-let tenmin_intro = document.querySelector('#tenmin_intro');
-let twentymin_intro = document.querySelector('#twentymin_intro');
-let threemin = document.querySelector('#threemin');
-let fivemin = document.querySelector('#fivemin');
-let tenmin = document.querySelector('#tenmin');
-let twentymin = document.querySelector('#twentymin');
+let three_min_intro = document.querySelector('#three_min_intro');
+let five_min_intro = document.querySelector('#five_min_intro');
+let ten_min_intro = document.querySelector('#ten_min_intro');
+let twenty_min_intro = document.querySelector('#twenty_min_intro');
+let three_min = document.querySelector('#three_min');
+let five_min = document.querySelector('#five_min');
+let ten_min = document.querySelector('#ten_min');
+let twenty_min = document.querySelector('#twenty_min');
 
 // Set duration three min
-threemin_intro.addEventListener('click', function () {
+three_min_intro.addEventListener('click', function () {
   duration = 3 * 60;
 })
 
 // Set duration five min
-fivemin_intro.addEventListener('click', function () {
+five_min_intro.addEventListener('click', function () {
   duration = 5 * 60;
 })
 
 // Set duration ten min
-tenmin_intro.addEventListener('click', function () {
+ten_min_intro.addEventListener('click', function () {
   duration = 10 * 60;
 })
 
 // Set duration twenty min
-twentymin_intro.addEventListener('click', function () {
+twenty_min_intro.addEventListener('click', function () {
   duration = 20 * 60;
 })
 
 // Change duration to three min
-threemin.addEventListener('click', function () {
+three_min.addEventListener('click', function () {
   duration = 3 * 60;
-  countDown(duration, 'status');
+  countdown(duration, 'status');
 })
 
 // Change duration to five min
-fivemin.addEventListener('click', function () {
+five_min.addEventListener('click', function () {
   duration = 5 * 60;
-  countDown(duration, 'status');
+  countdown(duration, 'status');
 })
 
 // Change duration to ten min
-tenmin.addEventListener('click', function () {
+ten_min.addEventListener('click', function () {
   duration = 10 * 60;
-  countDown(duration, 'status');
+  countdown(duration, 'status');
 })
 
 // Change duration to twenty min
-twentymin.addEventListener('click', function () {
+twenty_min.addEventListener('click', function () {
   duration = 20 * 60;
-  countDown(duration, 'status');
+  countdown(duration, 'status');
 })
 
 // Song played
-let songplayed;
+let song_played;
 
 // Toggle song
 function toggleSong() {
-  if (songplayed.isPlaying()) {
-    songplayed.pause();
-    clearTimeout(timer);
-    buttonpauseplay.innerHTML = 'Play';
+  if (song_played.isPlaying()) {
+    song_played.pause();
+    clear_timeout(timer);
+    button_pause_play.innerHTML = 'Play';
   } else {
-    songplayed.play();
-    buttonpauseplay.innerHTML = 'Pause';
-    timer = setTimeout('countDown(' + current_secs + ',"' + 'status' + '")', 1000);
+    song_played.play();
+    button_pause_play.innerHTML = 'Pause';
+    timer = set_timeout('countdown(' + current_secs + ',"' + 'status' + '")', 1000);
   }
 }
 
 // Select music
 function music() {
-  buttonpauseplay.addEventListener('click', toggleSong);
-  if (musicclick == "sound1") {
-    songplayed = song1;
-  } else if (musicclick == "sound2") {
-    songplayed = song2;
-  } else if (musicclick == "sound9") {
-    songplayed = song9;
+  button_pause_play.addEventListener('click', toggle_song);
+  if (music_click == "sound1") {
+    song_played = song1;
+  } else if (music_click == "sound2") {
+    song_played = song2;
+  } else if (music_click == "sound9") {
+    song_played = song9;
   }
-  songplayed.loop();
+  song_played.loop();
   amp = new p5.Amplitude();
 }
 
 // Music click
-let musicclick;
+let music_click;
 let sound1_intro = document.querySelector('#sound1_intro');
 let sound2_intro = document.querySelector('#sound2_intro');
 let sound9_intro = document.querySelector('#sound9_intro');
@@ -197,37 +197,37 @@ let sound9 = document.querySelector('#sound9');
 
 // Set sound1
 sound1_intro.addEventListener('click', function () {
-  musicclick = "sound1";
+  music_click = "sound1";
 })
 
 // Set sound2
 sound2_intro.addEventListener('click', function () {
-  musicclick = "sound2";
+  music_click = "sound2";
 })
 
 // Set sound3
 sound9_intro.addEventListener('click', function () {
-  musicclick = "sound9";
+  music_click = "sound9";
 })
 
 // Change sound1
 sound1.addEventListener('click', function () {
-  musicclick = "sound1";
-  songplayed.stop();
+  music_click = "sound1";
+  song_played.stop();
   music();
 })
 
 // Change sound2
 sound2.addEventListener('click', function () {
-  musicclick = "sound2";
-  songplayed.stop();
+  music_click = "sound2";
+  song_played.stop();
   music();
 })
 
 // Change sound3
 sound9.addEventListener('click', function () {
-  musicclick = "sound9";
-  songplayed.stop();
+  music_click = "sound9";
+  song_played.stop();
   music();
 })
 
@@ -239,13 +239,13 @@ function preload() {
 }
 
 // Draw circle
-let threeminintro = document.getElementById("threemin_intro");
-let fiveminintro = document.getElementById("fivemin_intro");
-let tenminintro = document.getElementById("tenmin_intro");
-let twentyminintro = document.getElementById("twentymin_intro");
-let sound1intro = document.getElementById("sound1_intro");
-let sound2intro = document.getElementById("sound2_intro");
-let sound9intro = document.getElementById("sound9_intro");
+let three_min_intro = document.getElementById("three_min_intro");
+let five_min_intro = document.getElementById("five_min_intro");
+let ten_min_intro = document.getElementById("ten_min_intro");
+let twenty_min_intro = document.getElementById("twenty_min_intro");
+let sound1_intro = document.getElementById("sound1_intro");
+let sound2_intro = document.getElementById("sound2_intro");
+let sound9_intro = document.getElementById("sound9_intro");
 
 let iftimer;
 let ifsound;
@@ -256,8 +256,8 @@ let word;
 let wordcounter = 0;
 
 function setup() {
-  let myCanvas = createCanvas(300, 300);
-  myCanvas.parent('mySketch');
+  let my_canvas = createCanvas(300, 300);
+  my_canvas.parent('my_sketch');
   x = width / 2;
   y = height / 2;
 }
@@ -298,27 +298,27 @@ function draw() {
     wordcounter++;
   }
 
-  if (threeminintro.checked || fiveminintro.checked || tenminintro.checked || twentyminintro.checked) {
+  if (three_min_intro.checked || five_min_intro.checked || ten_min_intro.checked || twenty_min_intro.checked) {
     iftimer = 'true';
   }
-  if (sound1intro.checked || sound2intro.checked || sound9intro.checked) {
+  if (sound1_intro.checked || sound2_intro.checked || sound9_intro.checked) {
     ifsound = 'true';
   }
   if (iftimer == 'true' && ifsound == 'true') {
-    buttonbegin.style.display = 'block';
+    button_begin.style.display = 'block';
     return;
   }
 }
 
 // Timer code
 let timer;
-let timerRunning = false;
+let timer_running = false;
 let current_secs;
 
-function countDown(secs, elem) {
-  if (timerRunning == true) {
-    clearTimeout(timer);
-    timerRunning = false;
+function countdown(secs, elem) {
+  if (timer_running == true) {
+    clear_timeout(timer);
+    timer_running = false;
   }
 
   let element = document.getElementById(elem);
@@ -329,48 +329,48 @@ function countDown(secs, elem) {
     return (new Array(length + 1).join(pad) + string).slice(-length);
   }
 
-  let finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
+  let final_time = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
 
   console.log(secs);
-  element.innerHTML = finalTime;
+  element.innerHTML = final_time;
 
-  let buttoncancel = document.querySelector('#buttoncancel');
-  buttoncancel.addEventListener('click', function () {
-    clearTimeout(timer);
+  let button_cancel = document.querySelector('#button_cancel');
+  button_cancel.addEventListener('click', function () {
+    clear_timeout(timer);
     element.innerHTML = ' ';
-    canceloverlay.classList.add('canceloverlay');
-    buttonclose.style.display = 'block';
-    canceloverlay.style.display = 'block';
-    songplayed.stop();
+    cancel_overlay.classList.add('cancel_overlay');
+    button_close.style.display = 'block';
+    cancel_overlay.style.display = 'block';
+    song_played.stop();
     return;
   })
 
   if (secs < 1) {
-    clearTimeout(timer);
+    clear_timeout(timer);
     element.innerHTML = ' ';
-    doneoverlay.classList.add('doneoverlay');
-    buttonclosedone.style.display = 'block';
-    doneoverlay.style.display = 'block';
-    songplayed.stop();
+    done_overlay.classList.add('doneoverlay');
+    button_close_done.style.display = 'block';
+    done_overlay.style.display = 'block';
+    song_played.stop();
     return;
   }
 
   secs--;
-  timer = setTimeout('countDown(' + secs + ',"' + elem + '")', 1000);
+  timer = set_timeout('countDown(' + secs + ',"' + elem + '")', 1000);
   current_secs = secs;
-  timerRunning = true;
+  timer_running = true;
 }
 
 let status = document.querySelector('#status');
-let canceloverlay = document.querySelector('#canceloverlay');
-let doneoverlay = document.querySelector('#doneoverlay');
-let buttonclose = document.querySelector('#buttonclose');
-let buttonclosedone = document.querySelector('#buttonclosedone');
+let cancel_overlay = document.querySelector('#cancel_overlay');
+let done_overlay = document.querySelector('#done_overlay');
+let button_close = document.querySelector('#button_close');
+let button_closedone = document.querySelector('#button_closedone');
 
-buttonclose.addEventListener('click', function () {
+button_close.addEventListener('click', function () {
   window.location.reload();
 })
 
-buttonclosedone.addEventListener('click', function () {
+button_close_done.addEventListener('click', function () {
   window.location.reload();
 })

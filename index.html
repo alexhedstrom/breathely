@@ -36,13 +36,13 @@
 
 <div id="p5_loading" class="loaderoverlay"><div class="loader"></div></div>
 
-<div id="infoopen">
+<div id="info_open">
     <span class="material-icons-outlined md-48" title="Info">info</span>
 </div>
 
-<div id="infooverlay">
-    <div id="infoclose"><span class="material-icons-outlined md-48" title="Close">cancel</span></div>
-    <div id="infooverlaytxt">
+<div id="info_overlay">
+    <div id="info_close"><span class="material-icons-outlined md-48" title="Close">cancel</span></div>
+    <div id="info_overlay_txt">
         <img width="250" src="assets/logo_light.png">
         <h2>(Beta 0.2)</h2>
         <p>The Breathely App is a simple yet powerful tool to improve your health, gain more energy and lower your stress and anxiety. Slowing down your breath and calm your mind is essential for an healthy life.</p>
@@ -53,69 +53,69 @@
 <section id="intro">
     <h1>Conscious Breathing</h1>
     <p>Conscious breathing is the key to a long and healthy life. Start using this app 2-3 times a day and you will see dramatic changes in how you feel. Just 5 minutes at a time is enough to start feeling better.</p>
-    <div id="buttonstart">Start breathing</div>
+    <div id="button_start">Start breathing</div>
 </section>
 
 <section id="settings">
     <h1>Conscious Breathing</h1>
     <h2>Select breathing time</h2>
-    <div class="settingsradio">
-        <input type="radio" id="threemin_intro" name="timerintro" value="threemin" required>
-        <label for="threemin_intro">3 min</label>
-        <input type="radio" id="fivemin_intro" name="timerintro" value="fivemin">
-        <label for="fivemin_intro">5 min</label>
-        <input type="radio" id="tenmin_intro" name="timerintro" value="tenmin">
-        <label for="tenmin_intro">10 min</label>
-        <input type="radio" id="twentymin_intro" name="timerintro" value="twentymin">
-        <label for="twentymin_intro">20 min</label>
+    <div class="settings_radio">
+        <input type="radio" id="three_min_intro" name="timer_intro" value="three_min" required>
+        <label for="three_min_intro">3 min</label>
+        <input type="radio" id="five_min_intro" name="timer_intro" value="five_min">
+        <label for="five_min_intro">5 min</label>
+        <input type="radio" id="ten_min_intro" name="timer_intro" value="ten_min">
+        <label for="ten_min_intro">10 min</label>
+        <input type="radio" id="twenty_min_intro" name="timer_intro" value="twenty_min">
+        <label for="twenty_min_intro">20 min</label>
     </div>
     <h2>Select preferred sound</h2>
-    <div class="settingsradio">
-        <input type="radio" id="sound1_intro" name="soundintro" value="sound1" required>
+    <div class="settings_radio">
+        <input type="radio" id="sound1_intro" name="sound_intro" value="sound1" required>
         <label for="sound1_intro">Calm 1</label>
-        <input type="radio" id="sound2_intro" name="soundintro" value="sound2">
+        <input type="radio" id="sound2_intro" name="sound_intro" value="sound2">
         <label for="sound2_intro">Calm 2</label>
-        <input type="radio" id="sound9_intro" name="soundintro" value="sound9">
+        <input type="radio" id="sound9_intro" name="sound_intro" value="sound9">
         <label for="sound9_intro">None</label>
     </div>
-    <div id="buttonbegin">Begin</div>
+    <div id="button_begin">Begin</div>
 </section>
 
 <section id="countdown">
     <div id="status"></div>
 </section>
 
-<div id="mySketch"></div>
+<div id="my_sketch"></div>
 
-<div id="buttonpauseplay">Pause</div>
+<div id="button_pause_play">Pause</div>
 
-<div id="buttoncancel">Cancel</div>
+<div id="button_cancel">Cancel</div>
 
-<div id="canceloverlay">
+<div id="cancel_overlay">
     <h1>Canceled!</h1>
     <p>Thank you for breathing with us.</p>
-    <div id="buttonclose">Close</div>
+    <div id="button_close">Close</div>
 </div>
 
-<div id="customizeopen">
+<div id="customize_open">
     <span class="material-icons-outlined md-48" title="Customize">settings</span>
 </div>
 
-<section id="customizemenu">
-    <div id="customizeclose"><span class="material-icons-outlined md-48" title="Close">cancel</span></div>
+<section id="customize_menu">
+    <div id="customize_close"><span class="material-icons-outlined md-48" title="Close">cancel</span></div>
     <h2>Change time</h2>
-    <div class="customizeradio">
-        <input type="radio" id="threemin" name="timer" value="threemin">
-        <label for="threemin">3 min</label><br />
-        <input type="radio" id="fivemin" name="timer" value="fivemin">
-        <label for="fivemin">5 min</label><br />
-        <input type="radio" id="tenmin" name="timer" value="tenmin">
-        <label for="tenmin">10 min</label><br />
-        <input type="radio" id="twentymin" name="timer" value="twentymin">
-        <label for="twentymin">20 min</label>
+    <div class="customize_radio">
+        <input type="radio" id="three_min" name="timer" value="three_min">
+        <label for="three_min">3 min</label><br />
+        <input type="radio" id="five_min" name="timer" value="five_min">
+        <label for="five_min">5 min</label><br />
+        <input type="radio" id="ten_min" name="timer" value="ten_min">
+        <label for="ten_min">10 min</label><br />
+        <input type="radio" id="twenty_min" name="timer" value="twenty_min">
+        <label for="twenty_min">20 min</label>
     </div>
     <h2>Change sound</h2>
-    <div class="customizeradio">
+    <div class="customize_radio">
         <input type="radio" id="sound1" name="sound" value="sound1">
         <label for="sound1">Calm 1</label><br />
         <input type="radio" id="sound2" name="sound" value="sound2">
@@ -123,7 +123,7 @@
         <input type="radio" id="sound9" name="sound" value="sound9">
         <label for="sound9">None</label>
     </div>
-    <div class="customizelink">
+    <div class="customize_link">
         <a href="https://breathely.myspreadshop.se/" target="_blank" title="Visit our shop!"><span class="material-icons-outlined md-48">shopping_bag</span></a>
     </div>
 </section>
@@ -132,13 +132,13 @@
     <a href="https://breathely.myspreadshop.se/" target="_blank" title="Visit our shop!"><span class="material-icons-outlined md-48">shopping_bag</span></a>
 </div>
 
-<div id="doneoverlay">
+<div id="done_overlay">
     <h1>Done!</h1>
     <p>Thank you for breathing with us.</p>
-    <div id="buttonclosedone">Close</div>
+    <div id="button_close_done">Close</div>
 </div>
 
-<footer id="pagefooter">
+<footer id="page_footer">
     &copy; <script>document.write(new Date().getFullYear())</script> Alex Hedström
 </footer>
 
