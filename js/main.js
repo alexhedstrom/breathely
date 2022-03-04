@@ -163,12 +163,12 @@ let song_played;
 function toggleSong() {
   if (song_played.isPlaying()) {
     song_played.pause();
-    clear_timeout(timer);
+    clearTimeout(timer);
     button_pause_play.innerHTML = 'Play';
   } else {
     song_played.play();
     button_pause_play.innerHTML = 'Pause';
-    timer = set_timeout('countdown(' + current_secs + ',"' + 'status' + '")', 1000);
+    timer = setTimeout('countdown(' + current_secs + ',"' + 'status' + '")', 1000);
   }
 }
 
@@ -290,7 +290,7 @@ function draw() {
   ellipse(x, y, r, r);
   fill(0, 166, 188, 30);
 
-  if (mySketch.style.display == 'block' && wordcounter <= 1000000) {
+  if (my_sketch.style.display == 'block' && wordcounter <= 1000000) {
     textFont('Arial');
     textSize(18);
     text(word, x, y);
@@ -317,7 +317,7 @@ let current_secs;
 
 function countdown(secs, elem) {
   if (timer_running == true) {
-    clear_timeout(timer);
+    clearTimeout(timer);
     timer_running = false;
   }
 
@@ -336,7 +336,7 @@ function countdown(secs, elem) {
 
   let button_cancel = document.querySelector('#button_cancel');
   button_cancel.addEventListener('click', function () {
-    clear_timeout(timer);
+    clearTimeout(timer);
     element.innerHTML = ' ';
     cancel_overlay.classList.add('cancel_overlay');
     button_close.style.display = 'block';
@@ -346,9 +346,9 @@ function countdown(secs, elem) {
   })
 
   if (secs < 1) {
-    clear_timeout(timer);
+    clearTimeout(timer);
     element.innerHTML = ' ';
-    done_overlay.classList.add('doneoverlay');
+    done_overlay.classList.add('done_overlay');
     button_close_done.style.display = 'block';
     done_overlay.style.display = 'block';
     song_played.stop();
@@ -356,7 +356,7 @@ function countdown(secs, elem) {
   }
 
   secs--;
-  timer = set_timeout('countDown(' + secs + ',"' + elem + '")', 1000);
+  timer = setTimeout('countDown(' + secs + ',"' + elem + '")', 1000);
   current_secs = secs;
   timer_running = true;
 }
@@ -365,7 +365,7 @@ let status = document.querySelector('#status');
 let cancel_overlay = document.querySelector('#cancel_overlay');
 let done_overlay = document.querySelector('#done_overlay');
 let button_close = document.querySelector('#button_close');
-let button_closedone = document.querySelector('#button_closedone');
+let button_close_done = document.querySelector('#button_close_done');
 
 button_close.addEventListener('click', function () {
   window.location.reload();
