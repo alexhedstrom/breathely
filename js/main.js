@@ -21,62 +21,66 @@ if (window.location.protocol === 'http:') {
   requireHTTPS.classList.remove('hidden');
 }
 
-console.log('reading js');
 
+// Breathely
 'use strict';
 
-let customize = document.querySelector('#customize');
+// Navigation
+let customizeopen = document.querySelector('#customizeopen');
 let customizemenu = document.querySelector('#customizemenu');
 let customizeclose = document.querySelector('#customizeclose');
+
 let buttonstart = document.querySelector('#buttonstart');
 let buttonbegin = document.querySelector('#buttonbegin');
 let buttoncancel = document.querySelector('#buttoncancel')
 let buttonpauseplay = document.querySelector('#buttonpauseplay');
+
 let settings = document.querySelector('#settings');
 let countdown = document.querySelector('#countdown');
 let mySketch = document.querySelector('#mySketch');
 let intro = document.querySelector('#intro');
+
+let infoopen = document.querySelector('#infoopen');
 let infooverlay = document.querySelector('#infooverlay');
-let info = document.querySelector('#info');
 let infoclose = document.querySelector('#infoclose');
 
-// open customize menu
-customize.addEventListener('click', function () {
+// Open customize menu
+customizeopen.addEventListener('click', function () {
   customizemenu.style.left = '0';
-  // close customize menu on click outside
+  // Close customize menu on click outside
   if (!customizemenu.contains(event.target)) {
     document.addEventListener('click', function () {
       let isClickInside = customizemenu.contains(event.target);
-      let isClickLink = customize.contains(event.target);
-      if (isClickLink) {
-        // console.log('You clicked link');
+      let isClickOpen = customizeopen.contains(event.target);
+      if (isClickOpen) {
+        console.log('You clicked on open');
       }
       else if (isClickInside) {
-        // console.log('You clicked inside');
+        console.log('You clicked inside');
       }
       else {
-        // console.log('You clicked outside');
+        console.log('You clicked outside');
         customizemenu.style.left = '-300px';
       }
     })
   }
 })
 
-// close customize menu
+// Close customize menu
 customizeclose.addEventListener('click', function () {
   customizemenu.style.left = '-300px';
 })
 
-// start breathing button
+// Start breathing button
 buttonstart.addEventListener('click', function () {
   intro.style.display = 'none';
   settings.style.display = 'block';
 })
 
-// begin button
+// Begin button
 buttonbegin.addEventListener('click', function () {
   settings.style.display = 'none';
-  customize.style.display = 'block';
+  customizeopen.style.display = 'block';
   countdown.style.display = 'block';
   mySketch.style.display = 'block';
   buttonpauseplay.style.display = 'block';
@@ -85,17 +89,19 @@ buttonbegin.addEventListener('click', function () {
   music();
 })
 
-// display info
-info.addEventListener('click', function () {
+// Display info
+infoopen.addEventListener('click', function () {
   infooverlay.style.display = 'block';
 })
 
-// close info
+// Close info
 infoclose.addEventListener('click', function () {
   infooverlay.style.display = 'none';
 })
 
-// duration variable
+// Music
+
+// Duration variable
 let duration;
 let threemin_intro = document.querySelector('#threemin_intro');
 let fivemin_intro = document.querySelector('#fivemin_intro');
@@ -106,54 +112,54 @@ let fivemin = document.querySelector('#fivemin');
 let tenmin = document.querySelector('#tenmin');
 let twentymin = document.querySelector('#twentymin');
 
-// set duration three min
+// Set duration three min
 threemin_intro.addEventListener('click', function () {
   duration = 3 * 60;
 })
 
-// set duration five min
+// Set duration five min
 fivemin_intro.addEventListener('click', function () {
   duration = 5 * 60;
 })
 
-// set duration ten min
+// Set duration ten min
 tenmin_intro.addEventListener('click', function () {
   duration = 10 * 60;
 })
 
-// set duration twenty min
+// Set duration twenty min
 twentymin_intro.addEventListener('click', function () {
   duration = 20 * 60;
 })
 
-// change duration to three min
+// Change duration to three min
 threemin.addEventListener('click', function () {
   duration = 3 * 60;
   countDown(duration, 'status');
 })
 
-// change duration to five min
+// Change duration to five min
 fivemin.addEventListener('click', function () {
   duration = 5 * 60;
   countDown(duration, 'status');
 })
 
-// change duration to ten min
+// Change duration to ten min
 tenmin.addEventListener('click', function () {
   duration = 10 * 60;
   countDown(duration, 'status');
 })
 
-// change duration to twenty min
+// Change duration to twenty min
 twentymin.addEventListener('click', function () {
   duration = 20 * 60;
   countDown(duration, 'status');
 })
 
-// song played
+// Song played
 let songplayed;
 
-// toggle song
+// Toggle song
 function toggleSong() {
   if (songplayed.isPlaying()) {
     songplayed.pause();
@@ -166,7 +172,7 @@ function toggleSong() {
   }
 }
 
-// select music
+// Select music
 function music() {
   buttonpauseplay.addEventListener('click', toggleSong);
   if (musicclick == "sound1") {
@@ -180,7 +186,7 @@ function music() {
   amp = new p5.Amplitude();
 }
 
-// music click
+// Music click
 let musicclick;
 let sound1_intro = document.querySelector('#sound1_intro');
 let sound2_intro = document.querySelector('#sound2_intro');
@@ -189,50 +195,50 @@ let sound1 = document.querySelector('#sound1');
 let sound2 = document.querySelector('#sound2');
 let sound9 = document.querySelector('#sound9');
 
-// set sound1
+// Set sound1
 sound1_intro.addEventListener('click', function () {
   musicclick = "sound1";
 })
 
-// set sound2
+// Set sound2
 sound2_intro.addEventListener('click', function () {
   musicclick = "sound2";
 })
 
-// set sound3
+// Set sound3
 sound9_intro.addEventListener('click', function () {
   musicclick = "sound9";
 })
 
-// change sound1
+// Change sound1
 sound1.addEventListener('click', function () {
   musicclick = "sound1";
   songplayed.stop();
   music();
 })
 
-// change sound2
+// Change sound2
 sound2.addEventListener('click', function () {
   musicclick = "sound2";
   songplayed.stop();
   music();
 })
 
-// change sound3
+// Change sound3
 sound9.addEventListener('click', function () {
   musicclick = "sound9";
   songplayed.stop();
   music();
 })
 
-// preload sound files
+// Preload sound files
 function preload() {
   song1 = loadSound('assets/sound1.mp3');
   song2 = loadSound('assets/sound2.mp3');
   song9 = loadSound('assets/sound9.mp3');
 }
 
-// draw circle
+// Draw circle
 let threeminintro = document.getElementById("threemin_intro");
 let fiveminintro = document.getElementById("fivemin_intro");
 let tenminintro = document.getElementById("tenmin_intro");
@@ -259,15 +265,15 @@ function setup() {
 function draw() {
   clear()
 
-  // outher circle
+  // Outher circle
   noStroke();
   ellipse(x, y, 260, 260);
 
-  // inner circle
+  // Inner circle
   noStroke();
   ellipse(x, y, 120, 120);
 
-  // variable circle
+  // Variable circle
   if (r >= 260) {
     delta = -.40;
     word = "EXHALE";
@@ -304,7 +310,7 @@ function draw() {
   }
 }
 
-// timer code
+// Timer code
 let timer;
 let timerRunning = false;
 let current_secs;
