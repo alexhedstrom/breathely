@@ -68,10 +68,6 @@ h2 {
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -85,7 +81,7 @@ h2 {
 }
 
 #button_start, #button_begin, #button_pause_play, #button_cancel, #button_close, #button_close_done {
-    border: 0px solid black;
+    border: 0 solid black;
     border-radius: 20em;
     width: 180px;
     padding: 6px;
@@ -192,7 +188,7 @@ h2 {
     background: rgba(0, 166, 188);
 }
 .settings_radio label {
-    margin: 0px 6px 0px 1px;
+    margin: 0 6px 0 1px;
     cursor: pointer;
     transition: 0.5s;
 }
@@ -251,7 +247,7 @@ h2 {
     background: white;
 }
 .customize_radio label {
-    margin: 0px 0px 0px 3px;
+    margin: 0 0 0 3px;
     cursor: pointer;
     transition: 0.5s;
 }

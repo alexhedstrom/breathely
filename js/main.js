@@ -85,7 +85,7 @@ button_begin.addEventListener('click', function () {
   my_sketch.style.display = 'block';
   button_pause_play.style.display = 'block';
   button_cancel.style.display = 'block';
-  countdown(duration, 'status');
+  countDown(duration, 'status');
   music();
 })
 
@@ -135,25 +135,25 @@ twenty_min_intro.addEventListener('click', function () {
 // Change duration to three min
 three_min.addEventListener('click', function () {
   duration = 3 * 60;
-  countdown(duration, 'status');
+  countDown(duration, 'status');
 })
 
 // Change duration to five min
 five_min.addEventListener('click', function () {
   duration = 5 * 60;
-  countdown(duration, 'status');
+  countDown(duration, 'status');
 })
 
 // Change duration to ten min
 ten_min.addEventListener('click', function () {
   duration = 10 * 60;
-  countdown(duration, 'status');
+  countDown(duration, 'status');
 })
 
 // Change duration to twenty min
 twenty_min.addEventListener('click', function () {
   duration = 20 * 60;
-  countdown(duration, 'status');
+  countDown(duration, 'status');
 })
 
 // Song played
@@ -168,18 +168,18 @@ function toggleSong() {
   } else {
     song_played.play();
     button_pause_play.innerHTML = 'Pause';
-    timer = setTimeout('countdown(' + current_secs + ',"' + 'status' + '")', 1000);
+    timer = setTimeout('countDown(' + current_secs + ',"' + 'status' + '")', 1000);
   }
 }
 
 // Select music
 function music() {
-  button_pause_play.addEventListener('click', toggle_song);
-  if (music_click == "sound1") {
+  button_pause_play.addEventListener('click', toggleSong);
+  if (music_click === "sound1") {
     song_played = song1;
-  } else if (music_click == "sound2") {
+  } else if (music_click === "sound2") {
     song_played = song2;
-  } else if (music_click == "sound9") {
+  } else if (music_click === "sound9") {
     song_played = song9;
   }
   song_played.loop();
@@ -239,13 +239,13 @@ function preload() {
 }
 
 // Draw circle
-let three_min_intro = document.getElementById("three_min_intro");
-let five_min_intro = document.getElementById("five_min_intro");
-let ten_min_intro = document.getElementById("ten_min_intro");
-let twenty_min_intro = document.getElementById("twenty_min_intro");
-let sound1_intro = document.getElementById("sound1_intro");
-let sound2_intro = document.getElementById("sound2_intro");
-let sound9_intro = document.getElementById("sound9_intro");
+three_min_intro = document.getElementById("three_min_intro");
+five_min_intro = document.getElementById("five_min_intro");
+ten_min_intro = document.getElementById("ten_min_intro");
+twenty_min_intro = document.getElementById("twenty_min_intro");
+sound1_intro = document.getElementById("sound1_intro");
+sound2_intro = document.getElementById("sound2_intro");
+sound9_intro = document.getElementById("sound9_intro");
 
 let iftimer;
 let ifsound;
@@ -315,7 +315,7 @@ let timer;
 let timer_running = false;
 let current_secs;
 
-function countdown(secs, elem) {
+function countDown(secs, elem) {
   if (timer_running == true) {
     clearTimeout(timer);
     timer_running = false;
