@@ -1,3 +1,0 @@
-language = "html"
-run = ["cargo", "run"]
-entrypoint = "index.html"
