@@ -11,6 +11,6 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        ftp-server: ftp://ftpcluster.loopia.se:21/app.breathely.com/public_html
+        ftp-server: ftp://ftpcluster.loopia.se:21
         ftp-username: breathely
         ftp-password: ${{ secrets.FTP_PASSWORD }}
