@@ -291,7 +291,7 @@ function draw() {
   fill(16, 125, 152, 30);
 
   if (my_sketch.style.display == 'block' && wordcounter <= 1000000) {
-    textFont('Arial');
+    textFont('Verdana');
     textSize(18);
     text(word, x, y);
     textAlign(CENTER, CENTER);
