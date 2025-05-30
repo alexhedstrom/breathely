@@ -285,10 +285,10 @@ function draw() {
 
   r = r + delta;
 
-  stroke(0, 166, 188);
+  stroke(16, 125, 152);
   strokeWeight(1);
   ellipse(x, y, r, r);
-  fill(0, 166, 188, 30);
+  fill(16, 125, 152, 30);
 
   if (my_sketch.style.display == 'block' && wordcounter <= 1000000) {
     textFont('Arial');
