@@ -265,7 +265,7 @@ function setup() {
 function draw() {
   clear()
 
-  // Outher circle
+  // Outer circle
   noStroke();
   ellipse(x, y, 260, 260);
 
