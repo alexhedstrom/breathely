@@ -45,26 +45,25 @@ let info_overlay = document.querySelector('#info_overlay');
 let info_close = document.querySelector('#info_close');
 
 // Open customize menu
-customize_open.addEventListener('click', function () {
+// Open customize menu
+customize_open.addEventListener('click', function (event) {
   customize_menu.style.left = '0';
   // Close customize menu on click outside
   if (!customize_menu.contains(event.target)) {
-    document.addEventListener('click', function () {
-      let isClickInside = customize_menu.contains(event.target);
-      let isClickOpen = customize_open.contains(event.target);
+    document.addEventListener('click', function (e) {
+      let isClickInside = customize_menu.contains(e.target);
+      let isClickOpen = customize_open.contains(e.target);
       if (isClickOpen) {
         console.log('You clicked on open');
-      }
-      else if (isClickInside) {
+      } else if (isClickInside) {
         console.log('You clicked inside');
-      }
-      else {
+      } else {
         console.log('You clicked outside');
         customize_menu.style.left = '-300px';
       }
-    })
+    }, { once: true });
   }
-})
+});
 
 // Close customize menu
 customize_close.addEventListener('click', function () {
