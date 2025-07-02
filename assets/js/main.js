@@ -86,6 +86,8 @@ button_begin.addEventListener('click', () => {
   button_cancel.style.display = 'block';
   countDown(duration, 'status');
   music();
+  loop();
+  animation_running = true;
 })
 
 // Display info
@@ -157,6 +159,7 @@ twenty_min.addEventListener('click', () => {
 
 // Song played
 let song_played;
+let animation_running = true;
 
 // Toggle song
 const toggleSong = () => {
@@ -164,10 +167,18 @@ const toggleSong = () => {
     song_played.pause();
     clearTimeout(timer);
     button_pause_play.innerHTML = 'Play';
+    if (animation_running) {
+      noLoop();
+      animation_running = false;
+    }
   } else {
     song_played.play();
     button_pause_play.innerHTML = 'Pause';
     timer = setTimeout(() => countDown(current_secs, 'status'), 1000);
+    if (!animation_running) {
+      loop();
+      animation_running = true;
+    }
   }
 }
 
