@@ -26,33 +26,33 @@ if (window.location.protocol === 'http:') {
 'use strict';
 
 // Navigation
-let customize_open = document.querySelector('#customize_open');
-let customize_menu = document.querySelector('#customize_menu');
-let customize_close = document.querySelector('#customize_close');
+const customize_open = document.querySelector('#customize_open');
+const customize_menu = document.querySelector('#customize_menu');
+const customize_close = document.querySelector('#customize_close');
 
-let button_start = document.querySelector('#button_start');
-let button_begin = document.querySelector('#button_begin');
-let button_cancel = document.querySelector('#button_cancel')
-let button_pause_play = document.querySelector('#button_pause_play');
+const button_start = document.querySelector('#button_start');
+const button_begin = document.querySelector('#button_begin');
+const button_cancel = document.querySelector('#button_cancel')
+const button_pause_play = document.querySelector('#button_pause_play');
 
-let settings = document.querySelector('#settings');
-let countdown = document.querySelector('#countdown');
-let my_sketch = document.querySelector('#my_sketch');
-let intro = document.querySelector('#intro');
+const settings = document.querySelector('#settings');
+const countdown = document.querySelector('#countdown');
+const my_sketch = document.querySelector('#my_sketch');
+const intro = document.querySelector('#intro');
 
-let info_open = document.querySelector('#info_open');
-let info_overlay = document.querySelector('#info_overlay');
-let info_close = document.querySelector('#info_close');
+const info_open = document.querySelector('#info_open');
+const info_overlay = document.querySelector('#info_overlay');
+const info_close = document.querySelector('#info_close');
 
 // Open customize menu
 // Open customize menu
-customize_open.addEventListener('click', function (event) {
+customize_open.addEventListener('click', (event) => {
   customize_menu.style.left = '0';
   // Close customize menu on click outside
   if (!customize_menu.contains(event.target)) {
-    document.addEventListener('click', function (event) {
-      let isClickInside = customize_menu.contains(event.target);
-      let isClickOpen = customize_open.contains(event.target);
+    document.addEventListener('click', (event) => {
+      const isClickInside = customize_menu.contains(event.target);
+      const isClickOpen = customize_open.contains(event.target);
       if (isClickOpen) {
         console.log('You clicked on open');
       } else if (isClickInside) {
@@ -66,18 +66,18 @@ customize_open.addEventListener('click', function (event) {
 });
 
 // Close customize menu
-customize_close.addEventListener('click', function () {
+customize_close.addEventListener('click', () => {
   customize_menu.style.left = '-300px';
 })
 
 // Start breathing button
-button_start.addEventListener('click', function () {
+button_start.addEventListener('click', () => {
   intro.style.display = 'none';
   settings.style.display = 'block';
 })
 
 // Begin button
-button_begin.addEventListener('click', function () {
+button_begin.addEventListener('click', () => {
   settings.style.display = 'none';
   customize_open.style.display = 'block';
   countdown.style.display = 'block';
@@ -89,12 +89,12 @@ button_begin.addEventListener('click', function () {
 })
 
 // Display info
-info_open.addEventListener('click', function () {
+info_open.addEventListener('click', () => {
   info_overlay.style.display = 'block';
 })
 
 // Close info
-info_close.addEventListener('click', function () {
+info_close.addEventListener('click', () => {
   info_overlay.style.display = 'none';
 })
 
@@ -102,55 +102,55 @@ info_close.addEventListener('click', function () {
 
 // Duration variable
 let duration;
-let three_min_intro = document.querySelector('#three_min_intro');
-let five_min_intro = document.querySelector('#five_min_intro');
-let ten_min_intro = document.querySelector('#ten_min_intro');
-let twenty_min_intro = document.querySelector('#twenty_min_intro');
-let three_min = document.querySelector('#three_min');
-let five_min = document.querySelector('#five_min');
-let ten_min = document.querySelector('#ten_min');
-let twenty_min = document.querySelector('#twenty_min');
+const three_min_intro = document.querySelector('#three_min_intro');
+const five_min_intro = document.querySelector('#five_min_intro');
+const ten_min_intro = document.querySelector('#ten_min_intro');
+const twenty_min_intro = document.querySelector('#twenty_min_intro');
+const three_min = document.querySelector('#three_min');
+const five_min = document.querySelector('#five_min');
+const ten_min = document.querySelector('#ten_min');
+const twenty_min = document.querySelector('#twenty_min');
 
 // Set duration three min
-three_min_intro.addEventListener('click', function () {
+three_min_intro.addEventListener('click', () => {
   duration = 3 * 60;
 })
 
 // Set duration five min
-five_min_intro.addEventListener('click', function () {
+five_min_intro.addEventListener('click', () => {
   duration = 5 * 60;
 })
 
 // Set duration ten min
-ten_min_intro.addEventListener('click', function () {
+ten_min_intro.addEventListener('click', () => {
   duration = 10 * 60;
 })
 
 // Set duration twenty min
-twenty_min_intro.addEventListener('click', function () {
+twenty_min_intro.addEventListener('click', () => {
   duration = 20 * 60;
 })
 
 // Change duration to three min
-three_min.addEventListener('click', function () {
+three_min.addEventListener('click', () => {
   duration = 3 * 60;
   countDown(duration, 'status');
 })
 
 // Change duration to five min
-five_min.addEventListener('click', function () {
+five_min.addEventListener('click', () => {
   duration = 5 * 60;
   countDown(duration, 'status');
 })
 
 // Change duration to ten min
-ten_min.addEventListener('click', function () {
+ten_min.addEventListener('click', () => {
   duration = 10 * 60;
   countDown(duration, 'status');
 })
 
 // Change duration to twenty min
-twenty_min.addEventListener('click', function () {
+twenty_min.addEventListener('click', () => {
   duration = 20 * 60;
   countDown(duration, 'status');
 })
@@ -159,7 +159,7 @@ twenty_min.addEventListener('click', function () {
 let song_played;
 
 // Toggle song
-function toggleSong() {
+const toggleSong = () => {
   if (song_played.isPlaying()) {
     song_played.pause();
     clearTimeout(timer);
@@ -167,12 +167,12 @@ function toggleSong() {
   } else {
     song_played.play();
     button_pause_play.innerHTML = 'Pause';
-    timer = setTimeout('countDown(' + current_secs + ',"' + 'status' + '")', 1000);
+    timer = setTimeout(() => countDown(current_secs, 'status'), 1000);
   }
 }
 
 // Select music
-function music() {
+const music = () => {
   button_pause_play.addEventListener('click', toggleSong);
   if (music_click === "sound1") {
     song_played = song1;
@@ -187,51 +187,51 @@ function music() {
 
 // Music click
 let music_click;
-let sound1_intro = document.querySelector('#sound1_intro');
-let sound2_intro = document.querySelector('#sound2_intro');
-let sound9_intro = document.querySelector('#sound9_intro');
-let sound1 = document.querySelector('#sound1');
-let sound2 = document.querySelector('#sound2');
-let sound9 = document.querySelector('#sound9');
+const sound1_intro = document.querySelector('#sound1_intro');
+const sound2_intro = document.querySelector('#sound2_intro');
+const sound9_intro = document.querySelector('#sound9_intro');
+const sound1 = document.querySelector('#sound1');
+const sound2 = document.querySelector('#sound2');
+const sound9 = document.querySelector('#sound9');
 
 // Set sound1
-sound1_intro.addEventListener('click', function () {
+sound1_intro.addEventListener('click', () => {
   music_click = "sound1";
 })
 
 // Set sound2
-sound2_intro.addEventListener('click', function () {
+sound2_intro.addEventListener('click', () => {
   music_click = "sound2";
 })
 
 // Set sound3
-sound9_intro.addEventListener('click', function () {
+sound9_intro.addEventListener('click', () => {
   music_click = "sound9";
 })
 
 // Change sound1
-sound1.addEventListener('click', function () {
+sound1.addEventListener('click', () => {
   music_click = "sound1";
   song_played.stop();
   music();
 })
 
 // Change sound2
-sound2.addEventListener('click', function () {
+sound2.addEventListener('click', () => {
   music_click = "sound2";
   song_played.stop();
   music();
 })
 
 // Change sound3
-sound9.addEventListener('click', function () {
+sound9.addEventListener('click', () => {
   music_click = "sound9";
   song_played.stop();
   music();
 })
 
 // Preload sound files
-function preload() {
+const preload = () => {
   song1 = loadSound('assets/sound/sound1.mp3');
   song2 = loadSound('assets/sound/sound2.mp3');
   song9 = loadSound('assets/sound/sound9.mp3');
@@ -254,14 +254,14 @@ let delta = 1;
 let word;
 let wordcounter = 0;
 
-function setup() {
+const setup = () => {
   let my_canvas = createCanvas(300, 300);
   my_canvas.parent('my_sketch');
   x = width / 2;
   y = height / 2;
 }
 
-function draw() {
+const draw = () => {
   clear()
 
   // Outer circle
@@ -314,7 +314,7 @@ let timer;
 let timer_running = false;
 let current_secs;
 
-function countDown(secs, elem) {
+const countDown = (secs, elem) => {
   if (timer_running == true) {
     clearTimeout(timer);
     timer_running = false;
@@ -324,17 +324,13 @@ function countDown(secs, elem) {
   let minutes = Math.floor(secs / 60);
   let seconds = secs - minutes * 60;
 
-  function str_pad_left(string, pad, length) {
-    return (new Array(length + 1).join(pad) + string).slice(-length);
-  }
-
-  let final_time = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
+  const final_time = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
   console.log(secs);
   element.innerHTML = final_time;
 
-  let button_cancel = document.querySelector('#button_cancel');
-  button_cancel.addEventListener('click', function () {
+  const button_cancel = document.querySelector('#button_cancel');
+  button_cancel.addEventListener('click', () => {
     clearTimeout(timer);
     element.innerHTML = ' ';
     cancel_overlay.classList.add('cancel_overlay');
@@ -355,22 +351,22 @@ function countDown(secs, elem) {
   }
 
   secs--;
-  timer = setTimeout('countDown(' + secs + ',"' + elem + '")', 1000);
+  timer = setTimeout(() => countDown(secs, elem), 1000);
   current_secs = secs;
   timer_running = true;
 }
 
-let status = document.querySelector('#status');
-let cancel_overlay = document.querySelector('#cancel_overlay');
-let done_overlay = document.querySelector('#done_overlay');
-let button_close = document.querySelector('#button_close');
-let button_close_done = document.querySelector('#button_close_done');
+const status = document.querySelector('#status');
+const cancel_overlay = document.querySelector('#cancel_overlay');
+const done_overlay = document.querySelector('#done_overlay');
+const button_close = document.querySelector('#button_close');
+const button_close_done = document.querySelector('#button_close_done');
 
-button_close.addEventListener('click', function () {
+button_close.addEventListener('click', () => {
   window.location.reload();
 })
 
-button_close_done.addEventListener('click', function () {
+button_close_done.addEventListener('click', () => {
   window.location.reload();
 })
 
