@@ -50,9 +50,9 @@ customize_open.addEventListener('click', function (event) {
   customize_menu.style.left = '0';
   // Close customize menu on click outside
   if (!customize_menu.contains(event.target)) {
-    document.addEventListener('click', function (e) {
-      let isClickInside = customize_menu.contains(e.target);
-      let isClickOpen = customize_open.contains(e.target);
+    document.addEventListener('click', function (event) {
+      let isClickInside = customize_menu.contains(event.target);
+      let isClickOpen = customize_open.contains(event.target);
       if (isClickOpen) {
         console.log('You clicked on open');
       } else if (isClickInside) {
