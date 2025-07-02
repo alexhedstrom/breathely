@@ -373,3 +373,8 @@ button_close.addEventListener('click', function () {
 button_close_done.addEventListener('click', function () {
   window.location.reload();
 })
+
+// Expose countdown for testing environments
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { countDown };
+}
