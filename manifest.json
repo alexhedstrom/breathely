@@ -1,0 +1,19 @@
+{
+  "name": "Breathely",
+  "short_name": "Breathely",
+  "description": "Mindful breathing exercises for calm, focus, and better sleep",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "orientation": "portrait-primary",
+  "categories": ["health", "lifestyle", "wellness"],
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
