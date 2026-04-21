@@ -177,7 +177,13 @@ const ICONS = {
   'pause': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>',
   'down': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="12,20 6,6 18,6"/></svg>',
   'breath': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,8 C14.21,8 16,9.79 16,12 C16,14.21 14.21,16 12,16 C9.79,16 8,14.21 8,12 C8,9.79 9.79,8 12,8 Z"/></svg>',
-  'fire': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/></svg>'
+  'fire': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/></svg>',
+  'sparkle': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
+  'play': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>',
+  'export': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 19V5m-7 7l7-7 7 7"/></svg>',
+  'import': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14m7-7l-7 7-7-7"/></svg>',
+  'reset': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M3 8h6v6m12 4a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16m18-8h-6v6"/></svg>',
+  'heart': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
 };
 
 function getIconSVG(iconId) {
@@ -1033,8 +1039,8 @@ const Pages = {
 
       <!-- Actions -->
       <button onclick="Player.startExercise('${ex.id}')"
-        class="w-full py-4 bg-gradient-to-r ${cat.gradient} rounded-2xl font-medium text-base tracking-wide hover:opacity-90 transition-opacity active:scale-[0.98] transform shadow-lg mb-3">
-        ▶ Start Exercise
+        class="w-full py-4 bg-gradient-to-r ${cat.gradient} rounded-2xl font-medium text-base tracking-wide hover:opacity-90 transition-opacity active:scale-[0.98] transform shadow-lg mb-3 flex items-center justify-center gap-2">
+        <span class="w-5 h-5">${getIconSVG('play')}</span> Start Exercise
       </button>
 
       ${!ex.isDefault ? `
@@ -1120,7 +1126,9 @@ const Pages = {
 
       ${programs.length === 0 ? `
       <div class="text-center py-16">
-        <div class="empty-circle mx-auto mb-4 flex items-center justify-center text-2xl">📦</div>
+        <div class="empty-circle mx-auto mb-4 flex items-center justify-center">
+          <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.5v6m4.5-6v6m.718-13.5h2.039a.75.75 0 00.75-.75V3.75a.75.75 0 00-.75-.75h-2.039a.75.75 0 00-.75.75v2.25c0 .414.336.75.75.75z"/></svg>
+        </div>
         <p class="text-white/30 text-sm">No programs yet</p>
         <p class="text-white/20 text-xs mt-1">Create one to combine exercises</p>
       </div>` : ''}
@@ -1164,8 +1172,8 @@ const Pages = {
       </div>
 
       <button onclick="Player.startProgram('${p.id}')"
-        class="w-full py-4 bg-gradient-to-r from-sky-500 to-violet-500 rounded-2xl font-medium text-base tracking-wide hover:opacity-90 transition-opacity active:scale-[0.98] transform shadow-lg mb-3">
-        ▶ Start Program
+        class="w-full py-4 bg-gradient-to-r from-sky-500 to-violet-500 rounded-2xl font-medium text-base tracking-wide hover:opacity-90 transition-opacity active:scale-[0.98] transform shadow-lg mb-3 flex items-center justify-center gap-2">
+        <span class="w-5 h-5">${getIconSVG('play')}</span> Start Program
       </button>
 
       ${!p.isDefault ? `
@@ -1229,11 +1237,11 @@ const Pages = {
       <div class="mb-6">
         <p class="text-xs text-white/30 uppercase tracking-wider mb-2">Start from template</p>
         <div class="scroll-x flex gap-2 -mx-4 px-4 pb-1">
-          <button onclick="Pages.applyTemplate('box')" class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full glass glass-hover text-white/50">◻️ Box</button>
-          <button onclick="Pages.applyTemplate('triangle')" class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full glass glass-hover text-white/50">🔺 Triangle</button>
-          <button onclick="Pages.applyTemplate('4-7-8')" class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full glass glass-hover text-white/50">🌙 4-7-8</button>
-          <button onclick="Pages.applyTemplate('deep')" class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full glass glass-hover text-white/50">🧘 Deep Calm</button>
-          <button onclick="Pages.applyTemplate('energy')" class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full glass glass-hover text-white/50">⚡ Energizing</button>
+          <button onclick="Pages.applyTemplate('box')" class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full glass glass-hover text-white/50 flex items-center gap-1.5"><span class="w-3 h-3">${getIconSVG('square')}</span>Box</button>
+          <button onclick="Pages.applyTemplate('triangle')" class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full glass glass-hover text-white/50 flex items-center gap-1.5"><span class="w-3 h-3">${getIconSVG('triangle')}</span>Triangle</button>
+          <button onclick="Pages.applyTemplate('4-7-8')" class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full glass glass-hover text-white/50 flex items-center gap-1.5"><span class="w-3 h-3">${getIconSVG('moon')}</span>4-7-8</button>
+          <button onclick="Pages.applyTemplate('deep')" class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full glass glass-hover text-white/50 flex items-center gap-1.5"><span class="w-3 h-3">${getIconSVG('lotus')}</span>Deep Calm</button>
+          <button onclick="Pages.applyTemplate('energy')" class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full glass glass-hover text-white/50 flex items-center gap-1.5"><span class="w-3 h-3">${getIconSVG('lightning')}</span>Energizing</button>
         </div>
       </div>` : ''}
 
@@ -1312,9 +1320,9 @@ const Pages = {
     return `<div class="flex items-center gap-2.5 phase-row" data-index="${index}">
       <select onchange="Pages.updatePhase(${index}, 'type', this.value)"
         class="bg-white/5 border border-white/8 rounded-xl px-3 py-2.5 text-sm text-white/80 outline-none cursor-pointer flex-shrink-0 w-24">
-        <option value="inhale" ${phase.type === 'inhale' ? 'selected' : ''}>↑ Inhale</option>
-        <option value="hold" ${phase.type === 'hold' ? 'selected' : ''}>⏸ Hold</option>
-        <option value="exhale" ${phase.type === 'exhale' ? 'selected' : ''}>↓ Exhale</option>
+        <option value="inhale" ${phase.type === 'inhale' ? 'selected' : ''}>Inhale</option>
+        <option value="hold" ${phase.type === 'hold' ? 'selected' : ''}>Hold</option>
+        <option value="exhale" ${phase.type === 'exhale' ? 'selected' : ''}>Exhale</option>
       </select>
       <div class="flex-1 flex items-center gap-2">
         <input type="range" min="1" max="30" value="${phase.duration}" class="flex-1"
@@ -1639,16 +1647,16 @@ const Pages = {
         <p class="text-xs text-white/30 uppercase tracking-wider mb-4">Data</p>
 
         <button onclick="Pages.exportData()"
-          class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-sm text-white/60 transition-colors mb-2.5">
-          📤 Export Exercises & Programs
+          class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-sm text-white/60 transition-colors mb-2.5 flex items-center justify-center gap-2">
+          <span class="w-4 h-4">${getIconSVG('export')}</span> Export Exercises & Programs
         </button>
         <button onclick="Pages.importData()"
-          class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-sm text-white/60 transition-colors mb-2.5">
-          📥 Import Data
+          class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-sm text-white/60 transition-colors mb-2.5 flex items-center justify-center gap-2">
+          <span class="w-4 h-4">${getIconSVG('import')}</span> Import Data
         </button>
         <button onclick="Pages.resetData()"
-          class="w-full py-2.5 rounded-xl bg-red-500/5 hover:bg-red-500/10 text-sm text-red-400/60 transition-colors">
-          🔄 Reset All Data
+          class="w-full py-2.5 rounded-xl bg-red-500/5 hover:bg-red-500/10 text-sm text-red-400/60 transition-colors flex items-center justify-center gap-2">
+          <span class="w-4 h-4">${getIconSVG('reset')}</span> Reset All Data
         </button>
       </div>
 
@@ -1659,7 +1667,7 @@ const Pages = {
           <p class="gradient-text text-lg font-semibold">Breathely</p>
           <p class="text-xs text-white/25 mt-1">Version 1.0.0</p>
           <p class="text-xs text-white/20 mt-3">Mindful breathing exercises for<br>calm, focus, and better sleep</p>
-          <p class="text-xs text-white/15 mt-4">Made with 💙 and deep breaths</p>
+          <p class="text-xs text-white/15 mt-4">Made with <span class="w-3 h-3 inline-flex">${getIconSVG('heart')}</span> and deep breaths</p>
         </div>
       </div>
     </div>`;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -13,7 +14,8 @@
   <link rel="apple-touch-icon" href="icons/icon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/app.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -28,6 +30,7 @@
     }
   </script>
 </head>
+
 <body class="bg-slate-950 text-white min-h-screen overflow-x-hidden font-sans">
 
   <!-- Main App Content -->
@@ -45,8 +48,13 @@
         <p id="player-exercise-name" class="text-sm font-medium text-white/60"></p>
         <p id="player-program-info" class="text-xs text-white/30 mt-0.5 hidden"></p>
       </div>
-      <button id="btn-sound-toggle" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:text-white/70 transition-colors" title="Toggle sound">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 8.788V15.21c0 .274.222.496.496.496h2.238l3.455 3.456A.5.5 0 0013.5 18.87V5.13a.5.5 0 00-.811-.391L9.234 8.292H6.996a.496.496 0 00-.496.496z"/></svg>
+      <button id="btn-sound-toggle"
+        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:text-white/70 transition-colors"
+        title="Toggle sound">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 8.788V15.21c0 .274.222.496.496.496h2.238l3.455 3.456A.5.5 0 0013.5 18.87V5.13a.5.5 0 00-.811-.391L9.234 8.292H6.996a.496.496 0 00-.496.496z" />
+        </svg>
       </button>
     </div>
 
@@ -60,17 +68,21 @@
 
       <!-- Session Display -->
       <div id="session-display" class="text-center" style="display:none">
-        <p id="phase-label" class="text-xl font-light tracking-[0.3em] uppercase text-white/80 transition-all duration-500"></p>
+        <p id="phase-label"
+          class="text-xl font-light tracking-[0.3em] uppercase text-white/80 transition-all duration-500"></p>
         <p id="phase-timer" class="text-8xl font-extralight mt-3 tabular-nums"></p>
         <p id="round-label" class="text-sm text-white/30 mt-8 tracking-wider"></p>
       </div>
 
       <!-- Complete Display -->
       <div id="complete-display" class="text-center px-8" style="display:none">
-        <div class="text-7xl mb-6">✨</div>
+        <svg class="w-16 h-16 mx-auto mb-6 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
         <h2 class="text-3xl font-light mb-3">Well Done</h2>
         <p id="complete-stats" class="text-white/40 text-sm leading-relaxed"></p>
-        <button id="btn-close-complete" class="mt-10 px-10 py-3.5 bg-gradient-to-r from-sky-500 to-violet-500 hover:from-sky-400 hover:to-violet-400 rounded-full transition-all text-sm font-medium tracking-wide">
+        <button id="btn-close-complete"
+          class="mt-10 px-10 py-3.5 bg-gradient-to-r from-sky-500 to-violet-500 hover:from-sky-400 hover:to-violet-400 rounded-full transition-all text-sm font-medium tracking-wide">
           Done
         </button>
       </div>
@@ -78,38 +90,73 @@
 
     <!-- Player Controls -->
     <div id="player-controls" class="relative z-10 flex justify-center gap-5 pb-14" style="display:none">
-      <button id="btn-pause" class="w-16 h-16 rounded-full bg-white/10 hover:bg-white/15 flex items-center justify-center transition-all backdrop-blur-sm active:scale-95" title="Pause">
-        <svg id="icon-pause" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 9v6m4-6v6"/></svg>
-        <svg id="icon-resume" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" style="display:none"><path d="M8 5.14v14.72a1 1 0 001.5.86l11-7.36a1 1 0 000-1.72l-11-7.36A1 1 0 008 5.14z"/></svg>
+      <button id="btn-pause"
+        class="w-16 h-16 rounded-full bg-white/10 hover:bg-white/15 flex items-center justify-center transition-all backdrop-blur-sm active:scale-95"
+        title="Pause">
+        <svg id="icon-pause" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 9v6m4-6v6" />
+        </svg>
+        <svg id="icon-resume" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" style="display:none">
+          <path d="M8 5.14v14.72a1 1 0 001.5.86l11-7.36a1 1 0 000-1.72l-11-7.36A1 1 0 008 5.14z" />
+        </svg>
       </button>
-      <button id="btn-stop" class="w-16 h-16 rounded-full bg-white/10 hover:bg-white/15 flex items-center justify-center transition-all backdrop-blur-sm active:scale-95" title="Stop">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+      <button id="btn-stop"
+        class="w-16 h-16 rounded-full bg-white/10 hover:bg-white/15 flex items-center justify-center transition-all backdrop-blur-sm active:scale-95"
+        title="Stop">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="6" y="6" width="12" height="12" rx="2" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="1.5" />
+        </svg>
       </button>
     </div>
 
     <!-- Session Progress Bar -->
     <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/5 z-10">
-      <div id="session-progress" class="h-full bg-gradient-to-r from-sky-400 via-violet-400 to-pink-400 transition-all duration-500 ease-linear" style="width:0%"></div>
+      <div id="session-progress"
+        class="h-full bg-gradient-to-r from-sky-400 via-violet-400 to-pink-400 transition-all duration-500 ease-linear"
+        style="width:0%"></div>
     </div>
   </div>
 
   <!-- Bottom Navigation -->
-  <nav id="navbar" class="fixed bottom-0 left-0 right-0 bg-slate-950/80 backdrop-blur-2xl border-t border-white/5 z-40 safe-area-bottom">
+  <nav id="navbar"
+    class="fixed bottom-0 left-0 right-0 bg-slate-950/80 backdrop-blur-2xl border-t border-white/5 z-40 safe-area-bottom">
     <div class="max-w-lg mx-auto flex justify-around py-2 px-2">
-      <button class="nav-btn flex flex-col items-center py-1.5 px-4 rounded-2xl transition-all text-white/40 active:scale-95" data-page="home">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>
+      <button
+        class="nav-btn flex flex-col items-center py-1.5 px-4 rounded-2xl transition-all text-white/40 active:scale-95"
+        data-page="home">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z" />
+        </svg>
         <span class="text-[10px] mt-0.5 font-medium">Home</span>
       </button>
-      <button class="nav-btn flex flex-col items-center py-1.5 px-4 rounded-2xl transition-all text-white/40 active:scale-95" data-page="programs">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+      <button
+        class="nav-btn flex flex-col items-center py-1.5 px-4 rounded-2xl transition-all text-white/40 active:scale-95"
+        data-page="programs">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
         <span class="text-[10px] mt-0.5 font-medium">Programs</span>
       </button>
-      <button class="nav-btn flex flex-col items-center py-1.5 px-4 rounded-2xl transition-all text-white/40 active:scale-95" data-page="builder">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+      <button
+        class="nav-btn flex flex-col items-center py-1.5 px-4 rounded-2xl transition-all text-white/40 active:scale-95"
+        data-page="builder">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4" />
+        </svg>
         <span class="text-[10px] mt-0.5 font-medium">Create</span>
       </button>
-      <button class="nav-btn flex flex-col items-center py-1.5 px-4 rounded-2xl transition-all text-white/40 active:scale-95" data-page="settings">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <button
+        class="nav-btn flex flex-col items-center py-1.5 px-4 rounded-2xl transition-all text-white/40 active:scale-95"
+        data-page="settings">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
         <span class="text-[10px] mt-0.5 font-medium">Settings</span>
       </button>
     </div>
@@ -117,4 +164,5 @@
 
   <script src="js/app.js"></script>
 </body>
+
 </html>
