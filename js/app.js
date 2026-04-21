@@ -161,33 +161,36 @@ const BG_SOUNDS = [
 // ================================================
 
 const ICONS = {
-  'square': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>',
-  'triangle': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="12,2 22,22 2,22"/></svg>',
-  'moon': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
-  'lotus': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5m-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11m3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>',
-  'lightning': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="13,2 3,14 11,14 8,23 19,10 11,10"/></svg>',
-  'target': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>',
-  'sunrise': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M17 18a5 5 0 1 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="9.64" y2="4.81"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="4.81" x2="19.78" y2="10.22"/></svg>',
-  'speaker-mute': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M16.6915026,12.4744748 L21.50,7.67 C21.8245851,7.34915026 22,7.34915026 22,6.58578644 L22,6.58578644 C22,5.81253201 21.8245851,5.5 21.50,5.5 L21.50,5.5 C20.818,5.5 14,12.318 14,12.318 L3.05,12.318 C2.45,12.318 2,12.7680556 2,13.368 L2,13.368 L2,14.868 C2,15.468 2.45,15.918 3.05,15.918 L14,15.918 L21.50,22.5 L21.50,22.5 C21.8245851,22.5 22,22.3245851 22,21.6915026 L22,21.6915026 C22,20.9182882 21.8245851,20.6 21.50,20.6 L16.6915026,15.7094166 L16.6915026,12.4744748 Z" transform="translate(0 -0.5)"/><line x1="23" y1="0" x2="10" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
-  'rain': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2m-7 5l-1-1M3 11h2m15 0h2m-1-6l1-1m-8 17a4 4 0 0 1-4-4m8 0a4 4 0 0 1-4-4m-2 6v3m4-3v3m4-3v3"/></svg>',
-  'waves': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12c1.657 0 3.314-.5 4.97-1.5 1.655-1 3.31-1 4.97 0 1.655 1 3.31 1 4.97 0 1.655-1 3.31-1 4.97 0M3 6c1.657 0 3.314-.5 4.97-1.5 1.655-1 3.31-1 4.97 0 1.655 1 3.31 1 4.97 0 1.655-1 3.31-1 4.97 0M3 18c1.657 0 3.314-.5 4.97-1.5 1.655-1 3.31-1 4.97 0 1.655 1 3.31 1 4.97 0 1.655-1 3.31-1 4.97 0"/></svg>',
-  'wind': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>',
-  'stream': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6z"/><path d="M9 12c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2zm0 4c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2z"/><path d="M15 12c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2zm0 4c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2z"/></svg>',
-  'up': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="12,4 18,18 6,18"/></svg>',
-  'pause': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>',
-  'down': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="12,20 6,6 18,6"/></svg>',
-  'breath': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,8 C14.21,8 16,9.79 16,12 C16,14.21 14.21,16 12,16 C9.79,16 8,14.21 8,12 C8,9.79 9.79,8 12,8 Z"/></svg>',
-  'fire': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/></svg>',
-  'sparkle': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
-  'play': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>',
-  'export': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 19V5m-7 7l7-7 7 7"/></svg>',
-  'import': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14m7-7l-7 7-7-7"/></svg>',
-  'reset': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M3 8h6v6m12 4a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16m18-8h-6v6"/></svg>',
-  'heart': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
+  'square': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>',
+  'triangle': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><polygon points="12,2 22,22 2,22"/></svg>',
+  'moon': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+  'lotus': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5m-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11m3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>',
+  'lightning': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><polygon points="13,2 3,14 11,14 8,23 19,10 11,10"/></svg>',
+  'target': '<svg class="w-3/4 h-3/4 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>',
+  'sunrise': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M17 18a5 5 0 1 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="9.64" y2="4.81"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="4.81" x2="19.78" y2="10.22"/></svg>',
+  'speaker-mute': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M16.6915026,12.4744748 L21.50,7.67 C21.8245851,7.34915026 22,7.34915026 22,6.58578644 L22,6.58578644 C22,5.81253201 21.8245851,5.5 21.50,5.5 L21.50,5.5 C20.818,5.5 14,12.318 14,12.318 L3.05,12.318 C2.45,12.318 2,12.7680556 2,13.368 L2,13.368 L2,14.868 C2,15.468 2.45,15.918 3.05,15.918 L14,15.918 L21.50,22.5 L21.50,22.5 C21.8245851,22.5 22,22.3245851 22,21.6915026 L22,21.6915026 C22,20.9182882 21.8245851,20.6 21.50,20.6 L16.6915026,15.7094166 L16.6915026,12.4744748 Z" transform="translate(0 -0.5)"/><line x1="23" y1="0" x2="10" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  'rain': '<svg class="w-3/4 h-3/4 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2m-7 5l-1-1M3 11h2m15 0h2m-1-6l1-1m-8 17a4 4 0 0 1-4-4m8 0a4 4 0 0 1-4-4m-2 6v3m4-3v3m4-3v3"/></svg>',
+  'waves': '<svg class="w-3/4 h-3/4 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12c1.657 0 3.314-.5 4.97-1.5 1.655-1 3.31-1 4.97 0 1.655 1 3.31 1 4.97 0 1.655-1 3.31-1 4.97 0M3 6c1.657 0 3.314-.5 4.97-1.5 1.655-1 3.31-1 4.97 0 1.655 1 3.31 1 4.97 0 1.655-1 3.31-1 4.97 0M3 18c1.657 0 3.314-.5 4.97-1.5 1.655-1 3.31-1 4.97 0 1.655 1 3.31 1 4.97 0 1.655-1 3.31-1 4.97 0"/></svg>',
+  'wind': '<svg class="w-3/4 h-3/4 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>',
+  'stream': '<svg class="w-3/4 h-3/4 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6z"/><path d="M9 12c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2zm0 4c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2z"/><path d="M15 12c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2zm0 4c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2z"/></svg>',
+  'up': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><polygon points="12,4 18,18 6,18"/></svg>',
+  'pause': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>',
+  'down': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><polygon points="12,20 6,6 18,6"/></svg>',
+  'breath': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,8 C14.21,8 16,9.79 16,12 C16,14.21 14.21,16 12,16 C9.79,16 8,14.21 8,12 C8,9.79 9.79,8 12,8 Z"/></svg>',
+  'fire': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/></svg>',
+  'sparkle': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
+  'play': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>',
+  'export': '<svg class="w-3/4 h-3/4 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 19V5m-7 7l7-7 7 7"/></svg>',
+  'import': '<svg class="w-3/4 h-3/4 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14m7-7l-7 7-7-7"/></svg>',
+  'reset': '<svg class="w-3/4 h-3/4 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M3 8h6v6m12 4a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16m18-8h-6v6"/></svg>',
+  'heart': '<svg class="w-3/4 h-3/4 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
 };
 
 function getIconSVG(iconId) {
-  return ICONS[iconId] || `<span class="text-lg">${iconId}</span>`;
+  if (ICONS[iconId]) {
+    return `<span class="w-full h-full inline-flex items-center justify-center scale-[0.78]">${ICONS[iconId]}</span>`;
+  }
+  return `<span class="text-lg">${iconId}</span>`;
 }
 
 // ================================================
