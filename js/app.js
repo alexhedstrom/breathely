@@ -20,7 +20,7 @@ const DEFAULT_EXERCISES = [
       { type: 'hold', duration: 4 }
     ],
     rounds: 4,
-    icon: '◻️',
+    icon: 'square',
     category: 'calm',
     isDefault: true
   },
@@ -34,7 +34,7 @@ const DEFAULT_EXERCISES = [
       { type: 'hold', duration: 4 }
     ],
     rounds: 6,
-    icon: '🔺',
+    icon: 'triangle',
     category: 'balance',
     isDefault: true
   },
@@ -48,7 +48,7 @@ const DEFAULT_EXERCISES = [
       { type: 'exhale', duration: 8 }
     ],
     rounds: 4,
-    icon: '🌙',
+    icon: 'moon',
     category: 'sleep',
     isDefault: true
   },
@@ -61,7 +61,7 @@ const DEFAULT_EXERCISES = [
       { type: 'exhale', duration: 8 }
     ],
     rounds: 6,
-    icon: '🧘',
+    icon: 'lotus',
     category: 'relax',
     isDefault: true
   },
@@ -74,7 +74,7 @@ const DEFAULT_EXERCISES = [
       { type: 'exhale', duration: 2 }
     ],
     rounds: 15,
-    icon: '⚡',
+    icon: 'lightning',
     category: 'energy',
     isDefault: true
   },
@@ -89,7 +89,7 @@ const DEFAULT_EXERCISES = [
       { type: 'hold', duration: 2 }
     ],
     rounds: 5,
-    icon: '🎯',
+    icon: 'target',
     category: 'focus',
     isDefault: true
   }
@@ -101,7 +101,7 @@ const DEFAULT_PROGRAMS = [
     name: 'Morning Routine',
     description: 'Start your day with energy and focus',
     exerciseIds: ['energizing', 'focus-breathing'],
-    icon: '🌅',
+    icon: 'sunrise',
     isDefault: true
   },
   {
@@ -109,7 +109,7 @@ const DEFAULT_PROGRAMS = [
     name: 'Sleep Preparation',
     description: 'Wind down for a restful night',
     exerciseIds: ['deep-calm', '4-7-8-breathing'],
-    icon: '🌙',
+    icon: 'moon',
     isDefault: true
   },
   {
@@ -117,7 +117,7 @@ const DEFAULT_PROGRAMS = [
     name: 'Stress Relief',
     description: 'Quick stress reduction routine',
     exerciseIds: ['triangle-breathing', 'box-breathing'],
-    icon: '🍃',
+    icon: 'breath',
     isDefault: true
   }
 ];
@@ -132,30 +132,57 @@ const DEFAULT_SETTINGS = {
 };
 
 const PHASE_COLORS = {
-  inhale: { r: 56, g: 189, b: 248, label: 'Inhale', icon: '↑' },
-  hold:   { r: 167, g: 139, b: 250, label: 'Hold', icon: '⏸' },
-  exhale: { r: 244, g: 114, b: 182, label: 'Exhale', icon: '↓' }
+  inhale: { r: 56, g: 189, b: 248, label: 'Inhale', icon: 'up' },
+  hold: { r: 167, g: 139, b: 250, label: 'Hold', icon: 'pause' },
+  exhale: { r: 244, g: 114, b: 182, label: 'Exhale', icon: 'down' }
 };
 
 const CATEGORY_STYLES = {
-  calm:    { gradient: 'from-sky-500 to-cyan-500', bg: 'cat-calm', label: 'Calm' },
+  calm: { gradient: 'from-sky-500 to-cyan-500', bg: 'cat-calm', label: 'Calm' },
   balance: { gradient: 'from-emerald-500 to-teal-500', bg: 'cat-balance', label: 'Balance' },
-  sleep:   { gradient: 'from-indigo-500 to-purple-500', bg: 'cat-sleep', label: 'Sleep' },
-  relax:   { gradient: 'from-violet-500 to-purple-500', bg: 'cat-relax', label: 'Relax' },
-  energy:  { gradient: 'from-amber-500 to-orange-500', bg: 'cat-energy', label: 'Energy' },
-  focus:   { gradient: 'from-cyan-500 to-blue-500', bg: 'cat-focus', label: 'Focus' },
-  custom:  { gradient: 'from-pink-500 to-rose-500', bg: 'cat-custom', label: 'Custom' }
+  sleep: { gradient: 'from-indigo-500 to-purple-500', bg: 'cat-sleep', label: 'Sleep' },
+  relax: { gradient: 'from-violet-500 to-purple-500', bg: 'cat-relax', label: 'Relax' },
+  energy: { gradient: 'from-amber-500 to-orange-500', bg: 'cat-energy', label: 'Energy' },
+  focus: { gradient: 'from-cyan-500 to-blue-500', bg: 'cat-focus', label: 'Focus' },
+  custom: { gradient: 'from-pink-500 to-rose-500', bg: 'cat-custom', label: 'Custom' }
 };
 
 const BG_SOUNDS = [
-  { id: 'none', name: 'Silence', icon: '🔇' },
-  { id: 'rain', name: 'Rain', icon: '🌧️' },
-  { id: 'ocean', name: 'Ocean Waves', icon: '🌊' },
-  { id: 'wind', name: 'Wind', icon: '💨' },
-  { id: 'night', name: 'Night', icon: '🦗' },
-  { id: 'stream', name: 'Stream', icon: '🏞️' }
+  { id: 'none', name: 'Silence', icon: 'speaker-mute' },
+  { id: 'rain', name: 'Rain', icon: 'rain' },
+  { id: 'ocean', name: 'Ocean Waves', icon: 'waves' },
+  { id: 'wind', name: 'Wind', icon: 'wind' },
+  { id: 'night', name: 'Night', icon: 'moon' },
+  { id: 'stream', name: 'Stream', icon: 'stream' }
 ];
 
+// ================================================
+// SVG ICONS
+// ================================================
+
+const ICONS = {
+  'square': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>',
+  'triangle': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="12,2 22,22 2,22"/></svg>',
+  'moon': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+  'lotus': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5m-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11m3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>',
+  'lightning': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="13,2 3,14 11,14 8,23 19,10 11,10"/></svg>',
+  'target': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>',
+  'sunrise': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M17 18a5 5 0 1 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="9.64" y2="4.81"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="4.81" x2="19.78" y2="10.22"/></svg>',
+  'speaker-mute': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M16.6915026,12.4744748 L21.50,7.67 C21.8245851,7.34915026 22,7.34915026 22,6.58578644 L22,6.58578644 C22,5.81253201 21.8245851,5.5 21.50,5.5 L21.50,5.5 C20.818,5.5 14,12.318 14,12.318 L3.05,12.318 C2.45,12.318 2,12.7680556 2,13.368 L2,13.368 L2,14.868 C2,15.468 2.45,15.918 3.05,15.918 L14,15.918 L21.50,22.5 L21.50,22.5 C21.8245851,22.5 22,22.3245851 22,21.6915026 L22,21.6915026 C22,20.9182882 21.8245851,20.6 21.50,20.6 L16.6915026,15.7094166 L16.6915026,12.4744748 Z" transform="translate(0 -0.5)"/><line x1="23" y1="0" x2="10" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  'rain': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2m-7 5l-1-1M3 11h2m15 0h2m-1-6l1-1m-8 17a4 4 0 0 1-4-4m8 0a4 4 0 0 1-4-4m-2 6v3m4-3v3m4-3v3"/></svg>',
+  'waves': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12c1.657 0 3.314-.5 4.97-1.5 1.655-1 3.31-1 4.97 0 1.655 1 3.31 1 4.97 0 1.655-1 3.31-1 4.97 0M3 6c1.657 0 3.314-.5 4.97-1.5 1.655-1 3.31-1 4.97 0 1.655 1 3.31 1 4.97 0 1.655-1 3.31-1 4.97 0M3 18c1.657 0 3.314-.5 4.97-1.5 1.655-1 3.31-1 4.97 0 1.655 1 3.31 1 4.97 0 1.655-1 3.31-1 4.97 0"/></svg>',
+  'wind': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>',
+  'stream': '<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6z"/><path d="M9 12c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2zm0 4c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2z"/><path d="M15 12c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2zm0 4c.667 0 1-1 1-2s-.333-2-1-2-1 1-1 2 .333 2 1 2z"/></svg>',
+  'up': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="12,4 18,18 6,18"/></svg>',
+  'pause': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>',
+  'down': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><polygon points="12,20 6,6 18,6"/></svg>',
+  'breath': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,8 C14.21,8 16,9.79 16,12 C16,14.21 14.21,16 12,16 C9.79,16 8,14.21 8,12 C8,9.79 9.79,8 12,8 Z"/></svg>',
+  'fire': '<svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/></svg>'
+};
+
+function getIconSVG(iconId) {
+  return ICONS[iconId] || `<span class="text-lg">${iconId}</span>`;
+}
 
 // ================================================
 // 2. UTILITY FUNCTIONS
@@ -524,7 +551,7 @@ const Sound = {
 
   stopBg() {
     this.bgNodes.forEach(n => {
-      try { if (n.stop) n.stop(); n.disconnect(); } catch {}
+      try { if (n.stop) n.stop(); n.disconnect(); } catch { }
     });
     this.bgNodes = [];
     this._currentBg = 'none';
@@ -869,11 +896,11 @@ function renderPatternSVG(phases, w = 280, h = 60) {
 function renderPhaseTimeline(phases) {
   return `<div class="flex items-center gap-1.5 flex-wrap">
     ${phases.map((p, i) => {
-      const c = p.type;
-      return `<span class="phase-${c} text-xs px-2.5 py-1 rounded-full font-medium">
-        ${PHASE_COLORS[c].icon} ${PHASE_COLORS[c].label} ${p.duration}s
+    const c = p.type;
+    return `<span class="phase-${c} text-xs px-2.5 py-1 rounded-full font-medium flex items-center gap-1">
+        <span class="w-3 h-3 inline-flex items-center justify-center">${getIconSVG(PHASE_COLORS[c].icon)}</span> ${PHASE_COLORS[c].label} ${p.duration}s
       </span>${i < phases.length - 1 ? '<span class="text-white/15">→</span>' : ''}`;
-    }).join('')}
+  }).join('')}
   </div>`;
 }
 
@@ -909,7 +936,7 @@ const Pages = {
           </div>
           ${stats.streak > 0 ? `
           <div class="text-center">
-            <p class="text-lg font-semibold">🔥${stats.streak}</p>
+            <p class="text-lg font-semibold flex items-center justify-center gap-1"><span class="w-5 h-5">${getIconSVG('fire')}</span>${stats.streak}</p>
             <p class="text-[10px] text-white/30 uppercase tracking-wider">Streak</p>
           </div>` : ''}
         </div>` : ''}
@@ -920,14 +947,14 @@ const Pages = {
         <h2 class="text-sm font-medium text-white/50 uppercase tracking-wider mb-3">Quick Start</h2>
         <div class="scroll-x flex gap-3 -mx-4 px-4 pb-2">
           ${DEFAULT_EXERCISES.map(e => {
-            const cat = CATEGORY_STYLES[e.category] || CATEGORY_STYLES.custom;
-            return `<button onclick="App.navigate('detail',{id:'${e.id}'})"
+      const cat = CATEGORY_STYLES[e.category] || CATEGORY_STYLES.custom;
+      return `<button onclick="App.navigate('detail',{id:'${e.id}'})"
               class="flex-shrink-0 w-36 glass glass-hover rounded-2xl p-4 text-left">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-lg mb-3">${e.icon}</div>
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70 mb-3">${getIconSVG(e.icon)}</div>
               <p class="text-sm font-medium text-white/90 leading-snug">${e.name}</p>
               <p class="text-xs text-white/30 mt-1">${formatDuration(calcTotalTime(e))}</p>
             </button>`;
-          }).join('')}
+    }).join('')}
         </div>
       </div>
 
@@ -945,7 +972,7 @@ const Pages = {
     const cat = CATEGORY_STYLES[e.category] || CATEGORY_STYLES.custom;
     return `<button onclick="App.navigate('detail',{id:'${e.id}'})"
       class="w-full glass glass-hover rounded-2xl p-4 text-left flex items-start gap-3.5">
-      <div class="w-12 h-12 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-xl flex-shrink-0">${e.icon}</div>
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70 flex-shrink-0">${getIconSVG(e.icon)}</div>
       <div class="flex-1 min-w-0">
         <div class="flex items-center gap-2">
           <h3 class="font-medium text-white/90 text-sm">${escHtml(e.name)}</h3>
@@ -976,7 +1003,7 @@ const Pages = {
       </button>
 
       <div class="text-center mb-8">
-        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-4xl mx-auto mb-4 shadow-lg">${ex.icon}</div>
+        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70 mx-auto mb-4 shadow-lg">${getIconSVG(ex.icon)}</div>
         <h1 class="text-2xl font-semibold">${escHtml(ex.name)}</h1>
         <p class="text-sm text-white/40 mt-2 max-w-xs mx-auto">${escHtml(ex.description)}</p>
         <span class="inline-block mt-3 text-xs px-3 py-1 rounded-full ${cat.bg} text-white/60 border border-white/5">${cat.label}</span>
@@ -1068,12 +1095,12 @@ const Pages = {
 
       <div class="space-y-3 stagger">
         ${programs.map(p => {
-          const exList = p.exerciseIds.map(id => exercises.find(e => e.id === id)).filter(Boolean);
-          const totalTime = exList.reduce((s, e) => s + calcTotalTime(e), 0);
-          return `<button onclick="App.navigate('program-detail',{id:'${p.id}'})"
+      const exList = p.exerciseIds.map(id => exercises.find(e => e.id === id)).filter(Boolean);
+      const totalTime = exList.reduce((s, e) => s + calcTotalTime(e), 0);
+      return `<button onclick="App.navigate('program-detail',{id:'${p.id}'})"
             class="w-full glass glass-hover rounded-2xl p-4 text-left">
             <div class="flex items-start gap-3">
-              <div class="text-3xl">${p.icon}</div>
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white/70 flex-shrink-0">${getIconSVG(p.icon)}</div>
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2">
                   <h3 class="font-medium text-white/90">${escHtml(p.name)}</h3>
@@ -1081,14 +1108,14 @@ const Pages = {
                 </div>
                 <p class="text-xs text-white/35 mt-0.5">${escHtml(p.description)}</p>
                 <div class="flex items-center gap-2 mt-2">
-                  ${exList.map(e => `<span class="text-xs px-2 py-0.5 rounded-full bg-white/5 text-white/30">${e.icon} ${e.name}</span>`).join('')}
+                  ${exList.map(e => `<span class="text-xs px-2 py-0.5 rounded-full bg-white/5 text-white/30 flex items-center gap-1"><span class="w-3 h-3 inline-flex">${getIconSVG(e.icon)}</span> ${e.name}</span>`).join('')}
                 </div>
                 <p class="text-[11px] text-white/20 mt-2">${exList.length} exercises · ${formatDuration(totalTime)}</p>
               </div>
               <svg class="w-5 h-5 text-white/15 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/></svg>
             </div>
           </button>`;
-        }).join('')}
+    }).join('')}
       </div>
 
       ${programs.length === 0 ? `
@@ -1116,7 +1143,7 @@ const Pages = {
       </button>
 
       <div class="text-center mb-8">
-        <div class="text-5xl mb-3">${p.icon}</div>
+        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white/70 mx-auto mb-3">${getIconSVG(p.icon)}</div>
         <h1 class="text-2xl font-semibold">${escHtml(p.name)}</h1>
         <p class="text-sm text-white/40 mt-2">${escHtml(p.description)}</p>
         <p class="text-xs text-white/25 mt-2">${exList.length} exercises · ${formatDuration(totalTime)} total</p>
@@ -1124,16 +1151,16 @@ const Pages = {
 
       <div class="space-y-2.5 mb-6">
         ${exList.map((e, i) => {
-          const cat = CATEGORY_STYLES[e.category] || CATEGORY_STYLES.custom;
-          return `<div class="glass rounded-2xl p-4 flex items-center gap-3">
+      const cat = CATEGORY_STYLES[e.category] || CATEGORY_STYLES.custom;
+      return `<div class="glass rounded-2xl p-4 flex items-center gap-3">
             <span class="text-xs text-white/20 w-5 text-center font-medium">${i + 1}</span>
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-lg">${e.icon}</div>
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70">${getIconSVG(e.icon)}</div>
             <div class="flex-1">
               <p class="text-sm font-medium text-white/80">${escHtml(e.name)}</p>
               <p class="text-xs text-white/30">${e.phases.length} phases · ${e.rounds} rounds · ${formatDuration(calcTotalTime(e))}</p>
             </div>
           </div>`;
-        }).join('')}
+    }).join('')}
       </div>
 
       <button onclick="Player.startProgram('${p.id}')"
@@ -1174,7 +1201,7 @@ const Pages = {
     const name = ex ? ex.name : '';
     const desc = ex ? ex.description : '';
     const cat = ex ? ex.category : 'custom';
-    const icon = ex ? ex.icon : '🌬️';
+    const icon = ex ? ex.icon : 'breath';
     const rounds = ex ? ex.rounds : 4;
     const phases = ex ? ex.phases : [
       { type: 'inhale', duration: 4 },
@@ -1182,6 +1209,14 @@ const Pages = {
       { type: 'exhale', duration: 4 },
       { type: 'hold', duration: 4 }
     ];
+
+    // Initialize _builderIconIdx to the correct icon if editing
+    if (icon) {
+      this._builderIconIdx = this._builderIcons.indexOf(icon);
+      if (this._builderIconIdx < 0) this._builderIconIdx = 0;
+    } else {
+      this._builderIconIdx = 0;
+    }
 
     return `<div class="py-6 page-enter">
       <div class="flex items-center justify-between mb-6">
@@ -1210,8 +1245,8 @@ const Pages = {
         <div class="glass rounded-2xl p-4 mb-3">
           <div class="flex gap-3">
             <button type="button" id="b-icon-btn" onclick="Pages.cycleIcon()"
-              class="w-14 h-14 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-2xl flex-shrink-0 transition-colors border border-white/5">
-              ${icon}
+              class="w-14 h-14 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 flex-shrink-0 transition-colors border border-white/5">
+              <span class="w-7 h-7">${getIconSVG(icon)}</span>
             </button>
             <div class="flex-1">
               <input type="text" id="b-name" value="${escHtml(name)}" placeholder="Exercise name"
@@ -1227,9 +1262,9 @@ const Pages = {
           <p class="text-xs text-white/30 mb-2">Category</p>
           <div class="flex flex-wrap gap-2" id="b-category">
             ${Object.entries(CATEGORY_STYLES).map(([k, v]) =>
-              `<button type="button" data-cat="${k}" onclick="Pages.selectCategory('${k}')"
+      `<button type="button" data-cat="${k}" onclick="Pages.selectCategory('${k}')"
                 class="text-xs px-3 py-1.5 rounded-full border transition-all ${k === cat ? 'bg-gradient-to-r ' + v.gradient + ' border-transparent text-white' : 'border-white/10 text-white/40 hover:border-white/20'}">${v.label}</button>`
-            ).join('')}
+    ).join('')}
           </div>
         </div>
 
@@ -1267,7 +1302,7 @@ const Pages = {
 
         <button type="submit"
           class="w-full py-4 bg-gradient-to-r from-sky-500 to-violet-500 rounded-2xl font-medium text-base tracking-wide hover:opacity-90 transition-opacity active:scale-[0.98] transform shadow-lg">
-          ${isEdit ? '💾 Save Changes' : '✨ Create Exercise'}
+          ${isEdit ? 'Save Changes' : 'Create Exercise'}
         </button>
       </form>
     </div>`;
@@ -1295,7 +1330,7 @@ const Pages = {
 
   _builderPhases: [],
   _builderCategory: 'custom',
-  _builderIcons: ['🌬️', '💨', '🫁', '🌊', '🌸', '☁️', '🌿', '🍃', '✨', '💎', '🔮', '🎐', '🪷', '🦋', '🌈'],
+  _builderIcons: ['breath', 'square', 'triangle', 'moon', 'lotus', 'target', 'lightning', 'waves', 'wind', 'sunrise', 'stream', 'up', 'down', 'pause'],
   _builderIconIdx: 0,
 
   initBuilder(params) {
@@ -1304,7 +1339,7 @@ const Pages = {
       ex = Store.getExerciseById(params.editId);
       if (ex && ex.isDefault) ex = null;
     }
-    this._builderPhases = ex ? [...ex.phases.map(p => ({...p}))] :
+    this._builderPhases = ex ? [...ex.phases.map(p => ({ ...p }))] :
       [{ type: 'inhale', duration: 4 }, { type: 'hold', duration: 4 }, { type: 'exhale', duration: 4 }, { type: 'hold', duration: 4 }];
     this._builderCategory = ex ? ex.category : 'custom';
     this._builderIconIdx = 0;
@@ -1312,17 +1347,20 @@ const Pages = {
 
   applyTemplate(tmpl) {
     const templates = {
-      'box': { phases: [{type:'inhale',duration:4},{type:'hold',duration:4},{type:'exhale',duration:4},{type:'hold',duration:4}], name: 'Box Breathing', icon: '◻️', rounds: 4 },
-      'triangle': { phases: [{type:'inhale',duration:4},{type:'exhale',duration:4},{type:'hold',duration:4}], name: 'Triangle Breathing', icon: '🔺', rounds: 6 },
-      '4-7-8': { phases: [{type:'inhale',duration:4},{type:'hold',duration:7},{type:'exhale',duration:8}], name: '4-7-8 Breathing', icon: '🌙', rounds: 4 },
-      'deep': { phases: [{type:'inhale',duration:4},{type:'exhale',duration:8}], name: 'Deep Calm', icon: '🧘', rounds: 6 },
-      'energy': { phases: [{type:'inhale',duration:2},{type:'exhale',duration:2}], name: 'Energizing', icon: '⚡', rounds: 15 }
+      'box': { phases: [{ type: 'inhale', duration: 4 }, { type: 'hold', duration: 4 }, { type: 'exhale', duration: 4 }, { type: 'hold', duration: 4 }], name: 'Box Breathing', icon: 'square', rounds: 4 },
+      'triangle': { phases: [{ type: 'inhale', duration: 4 }, { type: 'exhale', duration: 4 }, { type: 'hold', duration: 4 }], name: 'Triangle Breathing', icon: 'triangle', rounds: 6 },
+      '4-7-8': { phases: [{ type: 'inhale', duration: 4 }, { type: 'hold', duration: 7 }, { type: 'exhale', duration: 8 }], name: '4-7-8 Breathing', icon: 'moon', rounds: 4 },
+      'deep': { phases: [{ type: 'inhale', duration: 4 }, { type: 'exhale', duration: 8 }], name: 'Deep Calm', icon: 'lotus', rounds: 6 },
+      'energy': { phases: [{ type: 'inhale', duration: 2 }, { type: 'exhale', duration: 2 }], name: 'Energizing', icon: 'lightning', rounds: 15 }
     };
     const t = templates[tmpl];
     if (!t) return;
-    this._builderPhases = t.phases.map(p => ({...p}));
+    this._builderPhases = t.phases.map(p => ({ ...p }));
     document.getElementById('b-name').value = t.name + ' (Custom)';
-    document.getElementById('b-icon-btn').textContent = t.icon;
+    const btn = document.getElementById('b-icon-btn');
+    if (btn) {
+      btn.innerHTML = `<span class="w-6 h-6">${getIconSVG(t.icon)}</span>`;
+    }
     document.getElementById('b-rounds').textContent = t.rounds;
     this._refreshPhases();
   },
@@ -1383,7 +1421,10 @@ const Pages = {
 
   cycleIcon() {
     this._builderIconIdx = (this._builderIconIdx + 1) % this._builderIcons.length;
-    document.getElementById('b-icon-btn').textContent = this._builderIcons[this._builderIconIdx];
+    const btn = document.getElementById('b-icon-btn');
+    if (btn) {
+      btn.innerHTML = `<span class="w-7 h-7">${getIconSVG(this._builderIcons[this._builderIconIdx])}</span>`;
+    }
   },
 
   adjustBuilderRounds(delta) {
@@ -1405,7 +1446,7 @@ const Pages = {
       id: id,
       name: name,
       description: document.getElementById('b-desc').value.trim(),
-      icon: document.getElementById('b-icon-btn').textContent.trim(),
+      icon: this._builderIcons[this._builderIconIdx],
       category: this._builderCategory,
       phases: [...this._builderPhases],
       rounds: parseInt(document.getElementById('b-rounds').textContent),
@@ -1424,7 +1465,14 @@ const Pages = {
     const isEdit = !!prog;
     const exercises = Store.getExercises();
     const selectedIds = prog ? prog.exerciseIds : [];
-    const progIcons = ['📦', '🌅', '🌙', '🍃', '🔥', '🌸', '🎯', '💪', '🧠', '🌈'];
+
+    // Initialize _progIconIdx to the correct icon if editing
+    if (prog && prog.icon) {
+      this._progIconIdx = this._progIcons.indexOf(prog.icon);
+      if (this._progIconIdx < 0) this._progIconIdx = 0;
+    } else {
+      this._progIconIdx = 0;
+    }
 
     return `<div class="py-6 page-enter">
       <div class="flex items-center justify-between mb-6">
@@ -1438,8 +1486,8 @@ const Pages = {
         <div class="glass rounded-2xl p-4 mb-3">
           <div class="flex gap-3 mb-3">
             <button type="button" id="pb-icon" onclick="Pages.cycleProgramIcon()"
-              class="w-14 h-14 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-2xl flex-shrink-0 transition-colors border border-white/5">
-              ${prog ? prog.icon : '📦'}
+              class="w-14 h-14 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 flex-shrink-0 transition-colors border border-white/5">
+              ${prog ? `<span class="w-8 h-8">${getIconSVG(prog.icon)}</span>` : `<span class="w-8 h-8">${getIconSVG('breath')}</span>`}
             </button>
             <div class="flex-1">
               <input type="text" id="pb-name" value="${prog ? escHtml(prog.name) : ''}" placeholder="Program name"
@@ -1454,34 +1502,37 @@ const Pages = {
           <p class="text-xs text-white/30 uppercase tracking-wider mb-3">Select Exercises (in order)</p>
           <div class="space-y-2" id="pb-exercises">
             ${exercises.map(e => {
-              const checked = selectedIds.includes(e.id);
-              const cat = CATEGORY_STYLES[e.category] || CATEGORY_STYLES.custom;
-              return `<label class="flex items-center gap-3 p-2.5 rounded-xl cursor-pointer hover:bg-white/5 transition-colors ${checked ? 'bg-white/5' : ''}">
+      const checked = selectedIds.includes(e.id);
+      const cat = CATEGORY_STYLES[e.category] || CATEGORY_STYLES.custom;
+      return `<label class="flex items-center gap-3 p-2.5 rounded-xl cursor-pointer hover:bg-white/5 transition-colors ${checked ? 'bg-white/5' : ''}">
                 <input type="checkbox" name="exercises" value="${e.id}" ${checked ? 'checked' : ''}
                   class="w-5 h-5 rounded accent-sky-500">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-sm">${e.icon}</div>
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70">${getIconSVG(e.icon)}</div>
                 <div class="flex-1">
                   <p class="text-sm text-white/80">${escHtml(e.name)}</p>
                   <p class="text-[11px] text-white/25">${formatDuration(calcTotalTime(e))}</p>
                 </div>
               </label>`;
-            }).join('')}
+    }).join('')}
           </div>
         </div>
 
         <button type="submit"
           class="w-full py-4 bg-gradient-to-r from-sky-500 to-violet-500 rounded-2xl font-medium text-base tracking-wide hover:opacity-90 transition-opacity active:scale-[0.98] transform shadow-lg">
-          ${isEdit ? '💾 Save Changes' : '✨ Create Program'}
+          ${isEdit ? 'Save Changes' : 'Create Program'}
         </button>
       </form>
     </div>`;
   },
 
   _progIconIdx: 0,
-  _progIcons: ['📦', '🌅', '🌙', '🍃', '🔥', '🌸', '🎯', '💪', '🧠', '🌈'],
+  _progIcons: ['breath', 'sunrise', 'moon', 'lotus', 'lightning', 'target', 'square', 'triangle', 'waves', 'wind'],
   cycleProgramIcon() {
     this._progIconIdx = (this._progIconIdx + 1) % this._progIcons.length;
-    document.getElementById('pb-icon').textContent = this._progIcons[this._progIconIdx];
+    const btn = document.getElementById('pb-icon');
+    if (btn) {
+      btn.innerHTML = `<span class="w-8 h-8">${getIconSVG(this._progIcons[this._progIconIdx])}</span>`;
+    }
   },
 
   saveProgramBuilder(e) {
@@ -1495,7 +1546,7 @@ const Pages = {
       id: document.getElementById('pb-id').value,
       name: name,
       description: document.getElementById('pb-desc').value.trim(),
-      icon: document.getElementById('pb-icon').textContent.trim(),
+      icon: this._progIcons[this._progIconIdx],
       exerciseIds: checked,
       isDefault: false
     };
@@ -1541,7 +1592,7 @@ const Pages = {
               <button type="button" onclick="Pages.selectBgSound('${bg.id}')"
                 class="bg-sound-opt flex flex-col items-center gap-1 p-3 rounded-xl border transition-all ${s.backgroundSound === bg.id ? 'border-sky-500/50 bg-sky-500/10' : 'border-white/5 bg-white/3 hover:bg-white/5'}"
                 data-sound="${bg.id}">
-                <span class="text-lg">${bg.icon}</span>
+                <span class="w-6 h-6 text-white/70">${getIconSVG(bg.icon)}</span>
                 <span class="text-[11px] text-white/50">${bg.name}</span>
               </button>
             `).join('')}
@@ -1808,7 +1859,7 @@ const Player = {
         document.getElementById('session-progress').style.width = (overall * 100) + '%';
       },
 
-      onRoundComplete: (round) => {},
+      onRoundComplete: (round) => { },
 
       onComplete: (duration) => {
         document.getElementById('session-display').style.display = 'none';
