@@ -956,7 +956,7 @@ const Pages = {
       const cat = CATEGORY_STYLES[e.category] || CATEGORY_STYLES.custom;
       return `<button onclick="App.navigate('detail',{id:'${e.id}'})"
               class="flex-shrink-0 w-36 glass glass-hover rounded-2xl p-4 text-left">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70 mb-3">${getIconSVG(e.icon)}</div>
+              <div class="w-9 h-9 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70 mb-3">${getIconSVG(e.icon)}</div>
               <p class="text-sm font-medium text-white/90 leading-snug">${e.name}</p>
               <p class="text-xs text-white/30 mt-1">${formatDuration(calcTotalTime(e))}</p>
             </button>`;
@@ -978,7 +978,7 @@ const Pages = {
     const cat = CATEGORY_STYLES[e.category] || CATEGORY_STYLES.custom;
     return `<button onclick="App.navigate('detail',{id:'${e.id}'})"
       class="w-full glass glass-hover rounded-2xl p-4 text-left flex items-start gap-3.5">
-      <div class="w-12 h-12 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70 flex-shrink-0">${getIconSVG(e.icon)}</div>
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70 flex-shrink-0">${getIconSVG(e.icon)}</div>
       <div class="flex-1 min-w-0">
         <div class="flex items-center gap-2">
           <h3 class="font-medium text-white/90 text-sm">${escHtml(e.name)}</h3>
@@ -1009,7 +1009,7 @@ const Pages = {
       </button>
 
       <div class="text-center mb-8">
-        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70 mx-auto mb-4 shadow-lg">${getIconSVG(ex.icon)}</div>
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70 mx-auto mb-4 shadow-lg">${getIconSVG(ex.icon)}</div>
         <h1 class="text-2xl font-semibold">${escHtml(ex.name)}</h1>
         <p class="text-sm text-white/40 mt-2 max-w-xs mx-auto">${escHtml(ex.description)}</p>
         <span class="inline-block mt-3 text-xs px-3 py-1 rounded-full ${cat.bg} text-white/60 border border-white/5">${cat.label}</span>
@@ -1106,7 +1106,7 @@ const Pages = {
       return `<button onclick="App.navigate('program-detail',{id:'${p.id}'})"
             class="w-full glass glass-hover rounded-2xl p-4 text-left">
             <div class="flex items-start gap-3">
-              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white/70 flex-shrink-0">${getIconSVG(p.icon)}</div>
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white/70 flex-shrink-0">${getIconSVG(p.icon)}</div>
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2">
                   <h3 class="font-medium text-white/90">${escHtml(p.name)}</h3>
@@ -1151,7 +1151,7 @@ const Pages = {
       </button>
 
       <div class="text-center mb-8">
-        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white/70 mx-auto mb-3">${getIconSVG(p.icon)}</div>
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white/70 mx-auto mb-3">${getIconSVG(p.icon)}</div>
         <h1 class="text-2xl font-semibold">${escHtml(p.name)}</h1>
         <p class="text-sm text-white/40 mt-2">${escHtml(p.description)}</p>
         <p class="text-xs text-white/25 mt-2">${exList.length} exercises · ${formatDuration(totalTime)} total</p>
@@ -1162,7 +1162,7 @@ const Pages = {
       const cat = CATEGORY_STYLES[e.category] || CATEGORY_STYLES.custom;
       return `<div class="glass rounded-2xl p-4 flex items-center gap-3">
             <span class="text-xs text-white/20 w-5 text-center font-medium">${i + 1}</span>
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70">${getIconSVG(e.icon)}</div>
+              <div class="w-9 h-9 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70">${getIconSVG(e.icon)}</div>
             <div class="flex-1">
               <p class="text-sm font-medium text-white/80">${escHtml(e.name)}</p>
               <p class="text-xs text-white/30">${e.phases.length} phases · ${e.rounds} rounds · ${formatDuration(calcTotalTime(e))}</p>
@@ -1253,8 +1253,8 @@ const Pages = {
         <div class="glass rounded-2xl p-4 mb-3">
           <div class="flex gap-3">
             <button type="button" id="b-icon-btn" onclick="Pages.cycleIcon()"
-              class="w-14 h-14 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 flex-shrink-0 transition-colors border border-white/5">
-              <span class="w-7 h-7">${getIconSVG(icon)}</span>
+                class="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 flex-shrink-0 transition-colors border border-white/5">
+                <span class="w-6 h-6">${getIconSVG(icon)}</span>
             </button>
             <div class="flex-1">
               <input type="text" id="b-name" value="${escHtml(name)}" placeholder="Exercise name"
@@ -1494,8 +1494,8 @@ const Pages = {
         <div class="glass rounded-2xl p-4 mb-3">
           <div class="flex gap-3 mb-3">
             <button type="button" id="pb-icon" onclick="Pages.cycleProgramIcon()"
-              class="w-14 h-14 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 flex-shrink-0 transition-colors border border-white/5">
-              ${prog ? `<span class="w-8 h-8">${getIconSVG(prog.icon)}</span>` : `<span class="w-8 h-8">${getIconSVG('breath')}</span>`}
+                class="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 flex-shrink-0 transition-colors border border-white/5">
+                ${prog ? `<span class="w-7 h-7">${getIconSVG(prog.icon)}</span>` : `<span class="w-7 h-7">${getIconSVG('breath')}</span>`}
             </button>
             <div class="flex-1">
               <input type="text" id="pb-name" value="${prog ? escHtml(prog.name) : ''}" placeholder="Program name"
@@ -1515,7 +1515,7 @@ const Pages = {
       return `<label class="flex items-center gap-3 p-2.5 rounded-xl cursor-pointer hover:bg-white/5 transition-colors ${checked ? 'bg-white/5' : ''}">
                 <input type="checkbox" name="exercises" value="${e.id}" ${checked ? 'checked' : ''}
                   class="w-5 h-5 rounded accent-sky-500">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70">${getIconSVG(e.icon)}</div>
+                  <div class="w-7 h-7 rounded-lg bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-white/70">${getIconSVG(e.icon)}</div>
                 <div class="flex-1">
                   <p class="text-sm text-white/80">${escHtml(e.name)}</p>
                   <p class="text-[11px] text-white/25">${formatDuration(calcTotalTime(e))}</p>
